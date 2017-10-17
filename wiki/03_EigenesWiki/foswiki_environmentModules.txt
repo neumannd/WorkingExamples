@@ -1,0 +1,25 @@
+---+ Environment Modules
+
+---++ Links
+   * [[http://modules.sourceforge.net/c/module.html][MODULE(1) Manpage]]
+   * [[http://modules.sourceforge.net/c/modulefile.html][MODULEFILE(4) Manpage]]
+   * [[http://nickgeoghegan.net/linux/installing-environment-modules][Blog: Installing Env. Modules]]
+   * [[https://www.sharcnet.ca/help/index.php/Configuring_your_software_environment_with_Modules][Configure your ...]]
+   * [[http://www.admin-magazine.com/HPC/Articles/Environment-Modules][Article in the Admin-Magazine]]
+   * [[https://sourceforge.net/p/modules/wiki/FAQ/][Official FAQ]]
+
+---++ Install and initialize
+
+Download the environment-modules package via the package manager. Initialize the package via the command (terminal):
+
+<verbatim class='bash'>
+add.modules</verbatim>
+
+For details see the askubuntu article [[http://askubuntu.com/a/533636/463424][“module load” command does not work]]
+
+To add a path with module files (e.g. /sw/modules) to the module search path of environment modules, you need to append the path the the MODULEPATH environment variable - e.g. in the .bashrc -:
+
+<verbatim class='bash'>
+export MODULEPATH="$MODULEPATH:/sw/modules"</verbatim>
+
+-- Main.DanielNeumann - 29 Mar 2017

@@ -1,0 +1,23 @@
+---+ ImageMagick
+
+---++ Conversion
+
+---+++ ps to png
+<verbatim>
+convert -flatten -density 300 plot_amemr_all.ps -rotate "90<"  -resize 180% plot_amemr_all.png</verbatim>
+
+   * flatten: remove transparency / alpha ([[https://stackoverflow.com/questions/2322750/replace-transparency-in-png-images-with-white-background]])
+   * density: dpi
+   * rotate "90&lt;": rotate by 90 degree if 'height &gt; width'
+   * resize: resize resulting plot
+   * more options see [[http://www.imagemagick.org/script/command-line-options.php][ImageMagick Command-line Options]]
+
+---+++ crop
+
+The order of `crop` and `flatten` is important. If it is wrong, the original paper size is kept, the croped section is there and the remaining paper has the background color.
+<verbatim>
+convert plot_bathymetry.ps -flatten -crop 744x792+0+260 plot_bathymetry.png
+# -crop [xWidth]x[yWidth]+[xShift]+[yShift]
+# Origin is top left</verbatim>
+
+-- Main.DanielNeumann - 27 Jun 2017

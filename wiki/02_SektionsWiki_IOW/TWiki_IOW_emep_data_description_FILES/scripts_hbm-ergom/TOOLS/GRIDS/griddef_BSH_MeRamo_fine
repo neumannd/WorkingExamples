@@ -1,0 +1,17 @@
+#
+# BSH fine grid
+#
+gridtype  = lonlat
+gridsize  = 243810
+xname     = lon
+xlongname = longitudes      
+xunits    = degree east     
+yname     = lat
+ylongname = latitudes       
+yunits    = degree north    
+xsize     = 630
+ysize     = 387
+xfirst    = 6.173611
+xinc      = 0.013888889
+yfirst    = 53.22917
+yinc      = 0.008333333

@@ -1,0 +1,39 @@
+/* set attributes for ddep_* variables */
+ddep_nox_all@long_name="oxidized nitrogen dry deposition";
+ddep_nox_all@units="mmol m^-2 h^-1";
+ddep_nox_all@standard_name="tendency_of_ocean_mole_content_of_oxidized_nitrogen_compounds_expressed_as_nitrogen_due_to_deposition";
+ddep_nox_all@var_desc="oxidized nitrogen dry deposition";
+ddep_nred_all@long_name="reduced nitrogen dry deposition";
+ddep_nred_all@units="mmol m^-2 h^-1";
+ddep_nred_all@standard_name="tendency_of_ocean_mole_content_of_reduced_nitrogen_compounds_expressed_as_nitrogen_due_to_dry_deposition";
+ddep_nred_all@var_desc="reduced nitrogen dry deposition";
+
+/* set attributes for wdep_* variables */
+wdep_nox_all@long_name="oxidized nitrogen wet deposition";
+wdep_nox_all@units="mmol m^-2 h^-1";
+wdep_nox_all@standard_name="tendency_of_ocean_mole_content_of_oxidized_nitrogen_compounds_expressed_as_nitrogen_due_to_deposition";
+wdep_nox_all@var_desc="oxidized nitrogen wet deposition";
+wdep_nred_all@long_name="reduced nitrogen wet deposition";
+wdep_nred_all@units="mmol m^-2 h^-1";
+wdep_nred_all@standard_name="tendency_of_ocean_mole_content_of_reduced_nitrogen_compounds_expressed_as_nitrogen_due_to_wet_deposition";
+wdep_nred_all@var_desc="reduced nitrogen wet deposition";
+
+/* set attributes for sdep_* variables (ddep + wdep) */
+sdep_nox_all@long_name="oxidized nitrogen deposition";
+sdep_nox_all@units="mmol m^-2 h^-1";
+sdep_nox_all@standard_name="tendency_of_ocean_mole_content_of_oxidized_nitrogen_compounds_expressed_as_nitrogen_due_to_deposition";
+sdep_nox_all@var_desc="oxidized nitrogen deposition";
+sdep_nred_all@long_name="reduced nitrogen deposition";
+sdep_nred_all@units="mmol m^-2 h^-1";
+sdep_nred_all@standard_name="tendency_of_ocean_mole_content_of_reduced_nitrogen_compounds_expressed_as_nitrogen_due_to_deposition";
+sdep_nred_all@var_desc="reduced nitrogen deposition";
+
+
+/* set global attributes */
+global@title="EMEP Deposition 2012";
+global@institution="NILU";
+global@source="EMEP Model rv4.9_3245, 50km grid, daily averages, deposition data, 2012 emis, 2012 meteo, 2016 reporting";
+global@processor="Daniel Neumann, IOW";
+global@processor_email="daniel.neumann@io-warnemuende.de";
+global@standard_name_vocabulary="CF Standard Names 1.6";
+global@Conventions="CF-1.6";
