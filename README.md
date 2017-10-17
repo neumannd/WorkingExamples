@@ -1,4 +1,4 @@
-# WorkingExamples
+# WorkingExamles
 This repository contains some examples of my work.
 
 It is divided into five subcategories:
@@ -8,6 +8,8 @@ It is divided into five subcategories:
    * DB: example case for using a database
    * R: TODO
    * Wiki: ...
+
+-------
 
 ## bash
 
@@ -23,37 +25,34 @@ style and the features I use.
 
 ### 01_makeOCEAN_basic
 
-One script to create a input netCDF file for a model run.
+One script (`make_ocean_quick.sh`) to create a input netCDF file for a model run.
 
-#### make_ocean_quick.sh 
 This script creates an OCEANfile for CMAQ (Community Multiscale Air Quality 
 Model). CMAQ uses CMAS-IOAPI, which is an 'add-on'-library to netCDF. IOAPI 
 uses a specific set of global attributes. IOAPI seems to access variables not 
 by name but by their index in the netCDF file. Thesefore, variables in netCDF 
-input files for CMAQ need to be in a specific order.
-
-This script creates a netCDF file with the specific variable order and with 
-the needed global attributes.
+input files for CMAQ need to be in a specific order. This script creates a 
+netCDF file with the specific variable order and with the needed global 
+attributes.
 
 This script cleans up automatically. Please comment out the last line to 
 prevent it from doing the cleanup.
 
-Needed file: ./GRIDCRO/GRIDCRO2D_cd24_2012001
+_Needed file:_ `./GRIDCRO/GRIDCRO2D_cd24_2012001`
 
-Location of the output file: ./OCEAN
+_Location of the output file:_ `./OCEAN`
 
 
 ### 02_makeGridDef
 
-One script to create a cdo grid definition file.
+One script (`makeGridDef.sh`) to create a cdo grid definition file.
 
-#### makeGridDef.sh 
 A netCDF file containing lon and lat coordinates of a model grid is used to 
 create a text grid definition file used by cdo to interpolate data.
 
-Needed data: ./COORDS/coords_CD64.x_y_time.nc
+_Needed data:_ `./COORDS/coords_CD64.x_y_time.nc`
 
-Location of the output file: ./GRIDS
+_Location of the output file:_ `./GRIDS`
 
 
 ### 03_interpolate2CMAQ
