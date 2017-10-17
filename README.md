@@ -1,13 +1,13 @@
 # WorkingExamles
 This repository contains some examples of my work.
 
-It is divided into five subcategories:
+It is divided into four subcategories (sub-directory name in brackets):
 
-   * bash: bash scripts using cdo, NCO, netCDF binaries, GMT, and some default
+   * bash (bash): bash scripts using cdo, NCO, netCDF binaries, GMT, and some default
             command line tools
-   * DB: example case for using a database
-   * R: TODO
-   * Wiki: ...
+   * database (db): example case for using a database
+   * R (r_code): R-code for plotting and data processing
+   * Wikis (wiki): example wiki articles, which I posted in the past years
 
 -------
 
