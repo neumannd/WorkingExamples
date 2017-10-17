@@ -4,8 +4,8 @@
 # is set to 0 everywhere (=> no surf zone emis).
 #
 # @author: Daniel Neumann, daniel.neumann@hzg.de
-# @date: 2016-07-28
-# @version: 1.2
+# @date: 2017-10-17
+# @version: 1.3
 #
 # Preconditions / Needed Data
 #  GRIDCRO2D file $METEO_IN_NAME in $METEO_DIR
@@ -47,6 +47,37 @@ OCEAN_OUT_NAME=OCEAN_${GRID_NAME}_sf000m_basic.nc
 TMP_DIR='./tmp'
 METEO_DIR="./GRIDCRO"
 OUT_DIR="./OCEAN"
+
+
+## check directories
+if [ -e ${TMP_DIR} ]; then
+  if [ ! -d ${TMP_DIR} ]; then
+    echo "Temp directory ${TMP_DIR} exists but is not a directory. STOP"
+    exit 1
+  fi
+else
+  echo "Temp directory ${TMP_DIR} does not exist. Creating"
+  mkdir ${TMP_DIR}
+fi
+
+if [ -e ${OUT_DIR} ]; then
+  if [ ! -d ${OUT_DIR} ]; then
+    echo "Output directory ${OUT_DIR} exists but is not a directory. STOP"
+    exit 1
+  fi
+else
+  echo "Output directory ${OUT_DIR} does not exist. Creating"
+  mkdir ${OUT_DIR}
+fi
+
+if [ ! -e ${METEO_DIR} ]; then
+  echo "Data directory ${METEO_DIR} missing. STOP"
+  exit 1
+  if [ ! -f ${METEO_IN_NAME} ]; then
+    echo "Input data ${METEO_IN_NAME} missing. STOP"
+    exit 1
+  fi
+fi
 
 
 ## Copy the GRIDCRO2D file and make TSTEP to the record dimension
@@ -108,4 +139,4 @@ echo -e "\n  Move Ocean file to output directory."
 mv ${TMP_DIR}/${OCEAN_OUT_NAME} ${OUT_DIR}/${OCEAN_OUT_NAME}
 
 echo -e "\n  Remove temporary files."
-rm ${TMP_DIR}/tmp*.nc ${TMP_DIR}/cn06.nc
+rm ${TMP_DIR}/tmp*.nc ${TMP_DIR}/cn06.nc *.nco
