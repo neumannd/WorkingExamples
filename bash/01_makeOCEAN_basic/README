@@ -1,0 +1,5 @@
+This script creates an OCEANfile for CMAQ (Community Multiscale Air Quality Model). CMAQ uses CMAS-IOAPI, which is an 'add-on'-library to netCDF. IOAPI uses a specific set of global attributes. IOAPI seems to access variables not by name but by their index in the netCDF file. Thesefore, variables in netCDF input files for CMAQ need to be in a specific order.
+
+This script creates a netCDF file with the specific variable order and with the needed global attributes.
+
+
