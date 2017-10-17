@@ -1,0 +1,322 @@
+
+
+v3.7.0
+ - spada/martensson emission function:
+   -- the user can choose between three salinity dependencies:
+       (1) everything (NUM, SRF and MASS) are scaled by SAL/35
+       (2) NUM is not scaled
+           SRF is scaled by (SAL/35)^(2/3)
+           MASS and VOL are scaled by SAL/35
+           (1st moment would be scaled by (SAL/35)^(1/3))
+       (3) The same as (2) but additionally the source functions is shifted
+           by (SAL/35)^(1/3) (if SAL is lower then smaller particles are 
+           generated).
+ - some minor changes which I forgot
+
+v3.8.0
+ - 2015-Jun-25
+ - reordering of functions into different scripts:
+   -- ssemis_params:    parameters
+   -- ssemis_funs:      functions generally used independent of the emission
+                         parameterisation
+   -- ssemis_calc_sp13: function with emission parameterisation suggested by
+                         Spada et al. (2013)
+   -- ssemis_calc_go03: function with emission parameterisation derived by
+                         Gong (2003)
+   -- ssemis_calc_ov14: function with emission parameterisation derived by
+                         Ovadnevaite (2014); CURRENTLY NOT WORKING 
+   -- ssemis_main_*:    main programms to source the R scripts and call the 
+                         integration routines
+   -- ssemis_inti:      some functions for providing that appropriate versions
+                         of the individual sets of functions are used
+
+v3.8.1
+ - 2015-Jun-26
+ - modifications in ssemis_calc_sp13:
+   -- a warning is thrown when surface emissions below 0 are emitted
+   -- if the read in salinity (tmpSAL) is NaN it is replaced by 0
+   -- if the read in sst (tmpSST) is NaN it is replaced by 273
+
+v3.8.2
+ - 2015-Jun-26 to 2015-Jul-05
+ - modifications in ssemis_calc_sp13:
+   -- There were several if cases distinguishing between u10 < 9 m/s and 
+      u10 >= 9 m/s. The number of if calls was reduced and the code was
+      shortened.
+ - modifications in ssemis_calc_go03:
+   -- code cleaning / minor changes
+ - modifications in ssemis_calc_ov13:
+   -- The tnf function was modified in order to deal with 'Re' < 1e+5
+ - modifications in ssemis_params:
+   -- added variables for base input and output directories:
+       dBASEIN1, dBASEIN2 and dBASEOUT
+ - modifications in ssemis_funs:
+   -- new function: get_griddesc; replaces the need for loading cmaqtools
+   -- modification: calc_viscosityWater_a; unit 'K' is used for SST
+ - modifications in SW_tools.R
+   -- There was a problem with parsing NA values to the functions. This
+      problem was solved
+ 
+v3.8.3
+ - modifications in ssemis_calc_go03:
+ - modifications in ssemis_main_*:
+   -- All input and output directories are defined in the ssemis_params
+      and taken from there. In the ssemis_main_* the read from the
+      variable namespace$BASE$IN1, IN2 and OUT.
+   -- cmaqtools are not loaded anymore and the griddesc() function is
+      not used anymore. Instead, the function get_griddesc() from the
+      ssemis_funs is used now.
+ - modifications in ssemis_funs:
+   -- new function: get_griddesc(); it has the same function as
+      cmaqtools::griddesc()
+ - modifications in ssemis_calc_sp13:
+   -- The integration boundary between J and K mode (bJK) was used in a 
+      wrong context. bJK has the same size and dimensions as the input
+      and output data. Now tmpBJK is introduced which is set to 
+      bJK[iCol,iRow,iT] in each loop iteration.
+   -- In the case sal==3 wrong integration boundaries for the Monahan/
+      Smith parameterisations at the far right end of the size spectrum
+      were set.
+   -- The Martensson Parameterisation for the third particle size interval
+      becomes negative in some situation. Negative values are set to 0 (since
+      version 3.8.0). The integration routine might throw an error if large
+      parts of a functions are constant - especially 0 (zero). This may only
+      happen in the sal=3 mode. New: In situations in which this might happen, 
+      the error is suppressed and a warning is thrown. The warning contains 
+      information on the integration boundaries and the grid indices 
+      (row, col and time) in order to easily reproduce the error.
+ - modifications in ssemis_calc_go03:
+   -- The integration boundary between J and K mode (bJK) was used in a 
+      wrong context. bJK has the same size and dimensions as the input
+      and output data. Now tmpBJK is introduced which is set to 
+      bJK[iCol,iRow,iT] in each loop iteration.
+ - modifications in ssemis_calc_ov13:
+   -- In the conversion from dF/dlog(D) to dF/dD the 1/ln(10) had been
+      forgotten.
+   -- There is still some debugging code present which was commented out.
+      In the next version it could be removed.
+      
+      
+v3.8.4
+ - general:
+   -- new name conventions for the output file:
+       "ssemis_${GRID_NAME}_ae${AERO}_OC${SURF}${SAL}_${FUN}_mode${MODE}_${DATE}"
+       with: GRID_NAME = upper case grid name (CD06, CD24, ...)
+             AERO      = version of the aerosol mechanism (5, 6, ...)
+             SURF      = choose: (wSZ|nSZ) <=> with|no surf zone
+             SAL       = choose: (wSL|nSL) <=> with|no salinity scaling
+                                                (in the ocean file)
+             FUN       = sea salt emission function (ov13, sp13, go03, ...)
+             MODE      = integration/boundary mode (1, 2, 3, 4, ...)
+             DATE      = date in julian format (2008001 for day 1 of year 2008)
+   -- more flexible accessing of different ocean files via namespace and new
+       naming conventions for the OCEAN file variables:
+      --- wSZwSL: with surf zone (50 m) and with salinity scaling
+      --- wSZnSL: with surf zone (50 m) and no salinity scaling
+      --- nSZwSL: no surf zone (0 m) and with salinity scaling
+      --- nSZnSL: no surf zone (0 m) and no salinity scaling
+   -- definition of parameter 'modeIntegration' for ssemis_calc function:
+       1: basic integration of source function between boundaries bMin, bIJ,
+           bJK and bMax; if no salinity scaling is included in the source
+           function then a basic salinity scaling is applied;
+       2: like 1 but improved salinity scaling
+       3: like 2 but salinity dependent shifting of integration boundaries
+       4: modes are integrated from bMin to bMax; each mode of the emission
+           function is mapped to one of the CMAQ modes (I, J or K); This
+           approach is similar to the approach chosen in the SSEMIS module
+           of CMAQ. It applies only when the emission function explicitly 
+           consists of more than one mode.
+ - modifications in ssemis_params:
+   -- introduced function:
+      --- reset_namesspace: It should be called from the ssemis_main scripts 
+           in order to reset the namespace path(s) for the input and output 
+           file. In introducing this function, one does not need to set all the 
+           directories and file names on his/her own.
+      --- reset_base_directories: The user can parse new values for dBASEIN1,
+           dBASEIN2 and dBASEOUT which are the input and output directories.
+   -- now three versions of OCEAN files exist in parallel in the namespace (see
+       'general' for more details)
+   -- adapted to new file naming conventions (see 'general')
+   -- Now everywhere GRID_NAME (upper case grid name, e.g. CD06) is used. If
+       lower case grid name is needed (variable grid_name, e.g. cd06), then the
+       function tolower(GRID_NAME) is called. This makes accessing the 
+       namespace variable more consistent.
+   -- TODO: Make parameter setting in a way more consistent that dXXX and fXXX
+       variables are part of namespace variable, as well.
+ - ssemis_calc_* (general):
+   -- adopted scripts to the new OCEAN file conventions in the namespace
+       variable
+   -- modified parameters which are parsed:
+       new parameter:     surfzone (TRUE|FALSE) = load OCEAN file with(out) 
+                                                    surf zone
+       changed parameter: saltDependence -> modeIntegration (1|2|3|4) = choose
+                           type and boundaries of integration (see 'general');
+                           modeIntegration is not implemented in go03, yet, but 
+                           only in sp13 (1, 2, 3) and ov13 (1, 4);
+   -- TODO: optimized command line output;
+ - modifications in ssemis_calc_ov13:
+   -- The integration boundaries were adjusted. They depend on integrationMode.
+       1: integration I mode: bMin to bIJ
+                      J mode: bIJ to bJK
+                      K mode: bJK to bMax
+           Whereas, bJK is RH dependent.
+       2, 3: like 1
+       4: All five log-normal distributions are integrated from bMin to bMax.
+           The distributions 1 and 2 are assigned to the I mode.
+           The distributions 3 and 4 are assignet to the J mode.
+           The distribution 5 is assigned to the K mode.
+   -- The functions tnf was internally modified. Before the were 5 if-clauses.
+      Now different parameters are in arrays which make the if-clauses obsolete.
+      I expected an improvement of the run time. However, tests have shown the
+      the run time of this specific function even increased by about 5%.
+   -- The functions which are directly integrated are modified in a way that
+      they are shorter (in 'lines of code'). Additionnaly, 'apply' is used
+      instead of for-loops. I did not test the run time. In test with other
+      functions I found out the apply for 5 items takes about 10% more run time
+      than a for-loop. Here, we have a for-loop with 5 iterations, as well. 
+      Therefore, the run time might have gotten worse. However, at the same time
+      I re-ordered some basic camputation steps. Some tests for simpler
+      functions showed that improvements of 10% and more in run time are 
+      realistic.
+ - modifications in ssemis_calc_sp13:
+   -- TODO: adapt integration and function calls in a way that all needed
+             parameters are parsed via the function header
+            optimise functions which are integrated
+ - ssemis_main_*:
+   -- adapted to new file naming conventions (see 'general')
+   -- adapted to using new functions of ssemis_params (see 'ssemis_params')
+   -- adapted ssemis_calc call by adding new parameters
+   -- cleaning of the code
+   -- It is tested on which mashine the script is running. Depending on the
+       mashines name (RZNP0466L|grpsrv09|grpsrv01) different working, input and
+       output directories are set.
+   -- The setting of some parameters is more generalised so that filename
+       the things which are acutually calculated are more consistent. Amongst 
+       others this means central setting of
+      --- the version of the aerosol mechanism version,
+      --- the choice whether surf zone emissions are included or not, and
+      --- the integration mode,
+       in the beginning.
+
+
+v3.8.5
+ - ssemis_main_*:
+   -- External arguments can be parsed so that they do not have to be changed 
+       in the scripts. This makes it easiert to start several calculation
+       processes with different parameters.
+   -- variables which contain the version numbers have more general names, now
+   -- Base directories are automatically set depending on the computer. 
+       Currently, they are set to non-standard values when we are on GRPSRV01.
+ - ssemis_start (new script):
+   -- Script thought for calling from command line;
+   -- parse sea salt emissions function as command line argument instead of
+       calling the function directly
+ - ssemis_funs:
+   -- new function: ssemis_read_args
+      --- Reads out input arguments from the argument string which is parsed
+           when a start script is called from the command line.
+      --- It is called by ssemis_main_* and ssemis_start
+
+
+v3.8.6
+ - ssemis_fun:
+   -- write_ssemis:
+      --- hour in TFLAG was shifted by one hour
+      --- HISTORY attribute now contains the version of the ssemis tools
+   -- ssemis_read)args:
+      --- empty argument string threw an error in the past
+      --- now it returns empty arguments / arguments of length 0
+ - ssemis_calc_*:
+   -- variables which contain the version numbers have more general names, now
+   -- Old: When errors during the integration process are catched they are
+       parsed as warnings. Update: more parameters are given out, now.
+ - ssemis_calc_ov13:
+   -- Now, if an error occurs during the integration then the possibly wrong 
+       output value is taken and a warning is thrown. Before the change, the 
+       error was thrown and the integration was stopped. Commonly, the errors
+       occured when the function was close to zero and the ration between
+       absolute error and integrated value became too large. This feature has
+       been already added at some placed in ssemis_calc_sp13 before.
+   -- The second and third moments were twice multiplied by PI and PI/6*rho.
+       It should be done only once. With rho_SeaSalt = 2, the latter value
+       is about 1.047198 which does not change the mass flux much.
+   -- Ovadnevaites sea salt emission functions were internally denoted as SP*
+       which was a copy+paste error from the time when the script was created.
+       The names were corrected.
+   -- The run time was reduced by 3/4 in comparison to version 3.8.5. However,
+       the improvement is not that strong to version prior to version 3.8.5 
+       since in v3.8.5 a lot of changes were performed. These changes made the
+       code shorter and better readable. At the same time the run time 
+       increased considerably.
+ - ssemis_calc_sp13:
+   -- integration errors due to possible divergence of the function are catched
+       now and parsed as warnings.
+   -- in its first and second definition interval, MA03 is integrated 
+       analytically
+   -- on its third definition interval, MA03 is integrated analytically if
+        SST >= 275.6 K; for SST < 275.6 K MA03 is negative for some particle
+        diameters; in the latter case, still the integration routine is applied
+   -- The runtime is reduced by 30% to 40% by solving the MA03 parameterization
+        analytically. Currently, most time (2/7) is consumed by calling the 
+        pmax.int function for providing positiv-only results.exit
+
+
+
+v3.9.0
+ - general remarks:
+   -- the internal version checking was removed
+   -- version number per file name was removed
+ - ssemis_int: removed
+ - ssemis_start:
+   -- removed code parts for ssemis_int
+   -- removed version numbers in file name and in code
+ - ssemis_main_*:
+   -- removed code parts for ssemis_int
+   -- removed version numbers in file name and in code
+   -- removed checking on which computer the scripts is called (GRPSRV01, etc.)
+   -- removed setting working directory and file directory depending on
+       computer
+   -- code cleaned
+ - ssemis_main_ovadnevaite:
+   -- now ssemis_calc_ov14 is sourced instead of ssemis_calc_ov13
+ - ssemis_calc_*:
+   -- removed code parts for ssemis_int
+   -- removed version numbers in file name and in code
+   -- code cleaned
+   -- modified 'library' and 'source' calls
+ - ssemis_calc_ov14:
+   -- was known as ssemis_calc_ov13.R before
+   -- function names changed from ssemis_calc_ov13_ and ssemis_calc_ov13 to
+       ssemis_calc_ov14_ and ssemis_calc_ov14, respectively
+   -- Sharqawy2010 scripts are now called from within this function directly
+ - ssemis_params:
+   -- completely restructured
+   -- reset_* functions are deprecated, now
+   -- set_* functions replace the reset_* functions
+ - ssemis_funs:
+   -- removed code parts for ssemis_int
+   -- removed version numbers in file name and in code
+   -- functions 'tryCatch.W.E', 'get_coords_a', and 'calc_viscosityWater_a' are now considered to be
+       deprecated
+   -- Sharqawy2010 scripts are now called from within ssemis_calc_ov14 directly
+   -- the current ssemis version is written into the output netCDF files
+ - ssemis_versioning:
+   -- keeps the current ssemis tools version
+
+
+
+v4.0.0
+ - general remarks:
+   -- all TODOs solved except of those which indicate the need for documentation
+ - ssemis_calc_ov14:
+   -- was known as ssemis_calc_ov13.R before
+   -- function names changed from ssemis_calc_ov13_ and ssemis_calc_ov13 to
+       ssemis_calc_ov14_ and ssemis_calc_ov14, respectively
+ - ssemis_calc_sp13:
+   -- integration for MO86/SM93 was problematic -> solved
+ - ssemis_params:
+   -- renamed some variables used by the OV14 parameterizations
+   -- corrected dry sea salt density from 2.0 g/mc3 to 2.2 g/cm3
+   -- some additional documentation
+ - ssemis_funs:
+   -- removed deprecated functions
