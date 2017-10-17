@@ -1,7 +1,7 @@
 #!/bin/bash
 # Script extracts grid definitions from a netCDF file.
 # 
-# @author Daniel Neumann, daniel.neumann@hzg.de, ORCID
+# @author Daniel Neumann, daniel.neumannATioMINUSwarnemuende.de
 # @date 17/10/2015
 # @version 1.1
 #
