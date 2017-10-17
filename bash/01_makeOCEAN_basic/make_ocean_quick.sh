@@ -3,7 +3,7 @@
 # The script creates an ocean file based on a GRIDCRO2D file. The surf zone 
 # is set to 0 everywhere (=> no surf zone emis).
 #
-# @author: Daniel Neumann, daniel.neumann@hzg.de
+# @author: Daniel Neumann, daniel.neumannATioMINUSwarnemuende.de
 # @date: 2017-10-17
 # @version: 1.31
 #
