@@ -84,12 +84,12 @@ png image. The `clean_up.sh` script just cleans up the directory in the end.
 
 ### 11_makeBSH
 
-
+TODO
 
 
 ### 12_prepare_data_for_cera
 
-
+TODO
 
 
 
@@ -170,6 +170,10 @@ emissions. All other functions are not split into individual files but written
 in the file `ssemis_funs.R`. Some other external functions are called, for
 which I do not have the copyright. These functions are not included. For the
 interested reader, a verion log is included in `ssemis_log_version.txt`.
+
+The scripts were originally created in 2014 when I did not have as much 
+experiance with and knowledge on R. Therefore, a lot of things could probably
+optimized.
 
 
 -------
