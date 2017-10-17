@@ -73,11 +73,11 @@ fi
 if [ ! -e ${METEO_DIR} ]; then
   echo -e "\n  Data directory ${METEO_DIR} missing. STOP"
   exit 1
-  if [ ! -f ${METEO_IN_NAME} ]; then
-    echo -e "\n  Input data ${METEO_IN_NAME} missing. STOP"
+fi
+  if [ ! -f ${METEO_DIR}/${METEO_IN_NAME} ]; then
+    echo -e "\n  Input data ${METEO_DIR}/${METEO_IN_NAME} missing. STOP"
     exit 1
   fi
-fi
 
 echo ""
 
