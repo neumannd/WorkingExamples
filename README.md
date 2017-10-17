@@ -105,7 +105,71 @@ TODO
 
 ## R
 
-TODO
+Five examples of my usage of R are provided in the directory `r_code` (`db` 
+and `wiki` directories contain some more). Three examples are working out of
+the box (`01_*` to `03_*`), whereas two examples contain only code, which
+does not run, and corresponding figures (`11_*` and `12_*`). The later code
+examples do not work because input data and some script parts are missing
+becaues the data are not for public use, the data are too large, or/and 
+called code is not my own one.
+
+
+### 01_basic_plotting
+The script `basic_plotting_png.R` creates three basic plots with some playing
+with axes, colors, line types, point types, etc.
+
+### 02_using_screen
+The scripts `boxes_demo_1.R`, `boxes_demo_2.R`, and `boxes_demo_3.R` create 
+each one png file with differently aligned plots. The `screen` function of
+R is used for this purpose. These are mainly basic examples, which I originally
+created for our department's wiki.
+
+### 03_explain_ammoniumDryParticles
+The script `readme_standardname_problem.R` generates a pdf file containing 
+three plots. There plots visualize schematically (a) how atmospheric particles
+are in reality, (b) what specific variable names actually mean, and (c) how 
+atmospheric particles are represented in many atmospheric chemistry transport
+models.
+
+The plot is used in a readme of a data set published
+[at CERA](http://cera-www.dkrz.de/WDCC/ui/Compact.jsp?acronym=CCLM_CMAQ_HZG_2008). 
+In future the data will be available under the doi 
+10.1594/WDCC/CCLM_CMAQ_HZG_2008.
+
+
+### 11_time_series_seasalt
+The script `combine_sim_and_obs_v2.0.0_newPlotOrder.R` was used to create a 
+times series plot for a publication. The plot
+`fig09_CONC.timeseries.effectSeaSalt.v5.Na.threeStations.newer.pdf` is provided
+in this repository and can be also fund in one of my publications
+[Neumann et al. (2016)](https://doi.org/10.5194/acp-16-9905-2016).
+
+The script is quite long. The interesting plotting work is done between the 
+comments `ACTUAL PLOTTING START` and `ACTUAL PLOTTING END`. I am currently
+working on splitting the code into individual functions. The file
+`plot_timeseries_obs_mod` is a start doing this. However, it takes some time 
+to do it nicely (catch errors of input parameters, ...). 
+
+
+### 12_ssemis
+A set of scripts, which I used to calculated sea salt emissions (=ssemis), for
+runs with the CMAQ air quality model. Originally, I indented to create a R
+package from these data. But due to missing time and no further use of such a
+package, the code was left as it is.
+
+The scripts are also available as supplementary material to a paper availabler
+under the doi 
+[10.5194/acp-16-9905-2016](https://doi.org/10.5194/acp-16-9905-2016), which is
+Neumann et al. (2016).
+
+The script `ssemis_start.R` is the base script, which should be called from the
+command line. Specific command line arguments have to be provided as documented
+in the start script. It calls of of the `ssemis_main_*.R` scripts, which use 
+their corresponding functin in `ssemis_calc_*.R` to calculate sea salt 
+emissions. All other functions are not split into individual files but written
+in the file `ssemis_funs.R`. Some other external functions are called, for
+which I do not have the copyright. These functions are not included. For the
+interested reader, a verion log is included in `ssemis_log_version.txt`.
 
 
 -------
