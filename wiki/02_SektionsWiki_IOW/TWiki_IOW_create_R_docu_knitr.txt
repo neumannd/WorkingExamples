@@ -1,0 +1,175 @@
+---+!! Creating HTML documentation for R code via knitr::spin
+
+%TOC{"" title="Table of Content" depth="3"}%
+
+---++ General information
+
+The R package 'knitr' provides different functionalities. Amongst others one can create HTML and PDF documentation files from R scripts by the function 'spin' of the 'knitr' package. It generates a R documentation file (*.Rmd) first and than a html file.
+
+By default, the script is evaluated during processing. If one does not wish the evaluation, one can deactivate this functionality. Please see examples 2 and 3 for details to deactivate the evaluation of one part and of the whole script, respectively. See also [[https://stackoverflow.com/questions/25682992/knitrspin-prevent-all-chunks-for-being-executed][this Question at Stackoverflow]].
+
+Alternatives might be [[Roxygen2]] and [[RMarkdown]].
+
+Further reading:
+
+   * nice brief introduction on generating HTML documentation (from the author of the knitr package): [[https://yihui.name/knitr/demo/stitch/][yihui.name/knitr/demo/stitch/]]
+   * example R code: [[https://github.com/yihui/knitr/blob/master/inst/examples/knitr-spin.R][github.com/yihui/knitr/blob/master/inst/examples/knitr-spin.R]]
+   * resulting Rmd file: [[https://github.com/yihui/knitr/blob/master/inst/examples/knitr-spin.Rmd][github.com/yihui/knitr/blob/master/inst/examples/knitr-spin.Rmd]]
+
+HTML files can be saved to
+
+<verbatim>
+http://phywiki.io-warnemuende.de/local_htmls/R/iow_scripts/
+</verbatim>
+
+---++ Who did it?
+
+Daniel Neumann
+
+---++ Example data
+
+   * [[http://phywiki.io-warnemuende.de/local_htmls/R/iow_scripts/dneumann/code_documentation/knitr_spin/example01.R][example01.R]]
+   * [[http://phywiki.io-warnemuende.de/local_htmls/R/iow_scripts/dneumann/code_documentation/knitr_spin/example01.html][example01.html]]
+   * [[http://phywiki.io-warnemuende.de/local_htmls/R/iow_scripts/dneumann/code_documentation/knitr_spin/example02.R][example02.R]]
+   * [[http://phywiki.io-warnemuende.de/local_htmls/R/iow_scripts/dneumann/code_documentation/knitr_spin/example02.html][example02.html]]
+   * [[http://phywiki.io-warnemuende.de/local_htmls/R/iow_scripts/dneumann/code_documentation/knitr_spin/example03.R][example03.R]]
+   * [[http://phywiki.io-warnemuende.de/local_htmls/R/iow_scripts/dneumann/code_documentation/knitr_spin/example03.html][example03.html]]
+   * [[http://phywiki.io-warnemuende.de/local_htmls/R/iow_scripts/dneumann/code_documentation/knitr_spin/example04.R][example04.R]]
+   * [[http://phywiki.io-warnemuende.de/local_htmls/R/iow_scripts/dneumann/code_documentation/knitr_spin/example04.html][example04.html]]
+   * [[http://phywiki.io-warnemuende.de/local_htmls/R/iow_scripts/dneumann/code_documentation/knitr_spin/generate_html_documentation.sh][generate_html_documentation.sh]]
+   * [[http://phywiki.io-warnemuende.de/local_htmls/R/iow_scripts/dneumann/code_documentation/knitr_spin/generate_html_documentation.R][generate_html_documentation.R]]
+
+
+---++ R script
+
+---+++ Example 1
+<verbatim>
+#' Calculate 1+1 and print out
+#' 
+#' With this script we calculate the sum of 1 and 1 and print it out
+#' to the command line. We print it out as integer and as 2-digit
+#' float.
+#'
+#' @author Daniel Neumann
+#' @date 2017-09-07
+#' @version 1.0
+#'
+#' Roxygen comment parameters starting with '@' are not recognized.
+
+#' calculate 1+1
+result = 1+1
+
+#' print the result out as integer
+print(formatC(result, format='d'))
+
+#' print the result out as integer
+print(formatC(result, format='f', width=4, digits=2))</verbatim>
+
+Save the code in a file 'example01.R' and process it in R (console or RStudio):
+<verbatim>
+knitr::spin('example01.R')</verbatim>
+
+Files:
+   * HTML file: [[http://phywiki.io-warnemuende.de/local_htmls/R/iow_scripts/dneumann/code_documentation/knitr_spin/example01.html][example01.html]]
+   * R script: [[%ATTACHURL%/example01.R][example01.R]]
+
+---+++ Example 2
+<verbatim>
+#' Calculate 1+1 and print out
+#' 
+#' With this script we calculate the sum of 1 and 1 and print it out
+#' to the command line. We print it out as integer and as 2-digit
+#' float.
+#'
+
+#' calculate 1+1
+result = 1+1
+
+#' print the result out as integer
+# do not evaluate the next 'print' command in the html documentation
+#+ eval=FALSE
+print(formatC(result, format='d'))
+
+#' print the result out as integer
+print(formatC(result, format='f', width=4, digits=2))</verbatim>
+
+Save the code in a file 'example02.R' and process it in R (console or RStudio):
+<verbatim>
+knitr::spin('example02.R')</verbatim>
+
+Files:
+   * HTML file: [[http://phywiki.io-warnemuende.de/local_htmls/R/iow_scripts/dneumann/code_documentation/knitr_spin/example02.html][example02.html]]
+   * R script: [[%ATTACHURL%/example02.R][example02.R]]
+
+---+++ Example 2
+<verbatim>
+#' Calculate 1+1 and print out
+#' 
+#' With this script we calculate the sum of 1 and 1 and print it out
+#' to the command line. We print it out as integer and as 2-digit
+#' float.
+#'
+
+# evaluate nothing at all:
+#+ setup, include=FALSE
+knitr::opts_chunk$set(eval = FALSE)
+#+
+
+#' calculate 1+1
+result = 1+1
+
+#' print the result out as integer
+print(formatC(result, format='d'))
+
+#' print the result out as integer
+print(formatC(result, format='f', width=4, digits=2))</verbatim>
+
+Save the code in a file 'example03.R' and process it in R (console or RStudio):
+<verbatim>
+knitr::spin('example03.R')</verbatim>
+
+Files:
+   * HTML file: [[http://phywiki.io-warnemuende.de/local_htmls/R/iow_scripts/dneumann/code_documentation/knitr_spin/example03.html][example03.html]]
+   * R script: [[%ATTACHURL%/example03.R][example03.R]]
+
+---+++ Example 4
+<verbatim>
+#' Calculate 1+1 and print out
+#' 
+#' With this script we calculate the sum of 1 and 1 and print it out
+#' to the command line. We print it out as integer and as 2-digit
+#' float.
+#'
+#' Just different comments in the code
+
+# calculate 1+1
+result = 1+1
+
+# print the result out as integer
+print(formatC(result, format='d'))
+
+# print the result out as integer
+print(formatC(result, format='f', width=4, digits=2))
+
+#' Again a comment like in the beginning</verbatim>
+
+Save the code in a file 'example04.R' and process it in R (console or RStudio):
+<verbatim>
+knitr::spin('example04.R')</verbatim>
+
+Files:
+   * HTML file: [[http://phywiki.io-warnemuende.de/local_htmls/R/iow_scripts/dneumann/code_documentation/knitr_spin/example04.html][example04.html]]
+   * R script: [[%ATTACHURL%/example04.R][example04.R]]
+
+---++ Figures
+
+--
+
+---++ Who else is using this?
+---++ Comments
+
+%COMMENT%
+
+-- %USERSIG{DanielNeumann - 2017-09-07}%
+
+

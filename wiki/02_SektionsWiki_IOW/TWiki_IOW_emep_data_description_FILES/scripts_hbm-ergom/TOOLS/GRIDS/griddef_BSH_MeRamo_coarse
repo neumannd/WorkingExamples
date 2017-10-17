@@ -1,0 +1,17 @@
+#
+# BSH coarse grid
+#
+gridtype  = lonlat
+gridsize  = 143658
+xname     = lon
+xlongname = longitudes      
+xunits    = degree east     
+yname     = lat
+ylongname = latitudes       
+yunits    = degree north    
+xsize     = 414
+ysize     = 347
+xfirst    = -4.04166667
+xinc      = 0.08333333
+yfirst    = 48.525
+yinc      = 0.05
