@@ -38,9 +38,9 @@ attributes.
 This script cleans up automatically. Please comment out the last line to 
 prevent it from doing the cleanup.
 
-_Needed file:_ `./GRIDCRO/GRIDCRO2D_cd24_2012001`
+**Needed file:** `./GRIDCRO/GRIDCRO2D_cd24_2012001`
 
-_Location of the output file:_ `./OCEAN`
+**Location of the output file:** `./OCEAN`
 
 
 ### 02_makeGridDef
@@ -66,7 +66,7 @@ script (`clean_up.sh`) is for cleaning up the directory.
 
 **Location of the output file:** `./OUTPUT`
 
-**Reference input data:** T. Seifert, F. Tauber, B. Kayser: 2001: *"A high resolution spherical grid topography of the Baltic Sea - 2nd edition"*, Baltic Sea Science Congress, Stockholm 25-29. November 2001, Poster #147, [www.io-warnemuende.de/iowtopo](www.io-warnemuende.de/iowtopo). 
+**Reference input data:** T. Seifert, F. Tauber, B. Kayser: 2001: *"A high resolution spherical grid topography of the Baltic Sea - 2nd edition"*, Baltic Sea Science Congress, Stockholm 25-29. November 2001, Poster #147, [www.io-warnemuende.de/iowtopo](http://www.io-warnemuende.de/iowtopo). 
 
 
 ### 04_plot_bathymetry
@@ -79,7 +79,7 @@ png image. The `clean_up.sh` script just cleans up the directory in the end.
 
 **Location of the output file (pictures):** `./21_pics`
 
-**Reference input data:** T. Seifert, F. Tauber, B. Kayser: 2001: *"A high resolution spherical grid topography of the Baltic Sea - 2nd edition"*, Baltic Sea Science Congress, Stockholm 25-29. November 2001, Poster #147, [www.io-warnemuende.de/iowtopo](www.io-warnemuende.de/iowtopo). 
+**Reference input data:** T. Seifert, F. Tauber, B. Kayser: 2001: *"A high resolution spherical grid topography of the Baltic Sea - 2nd edition"*, Baltic Sea Science Congress, Stockholm 25-29. November 2001, Poster #147, [www.io-warnemuende.de/iowtopo](http://www.io-warnemuende.de/iowtopo). 
 
 
 ### 11_makeBSH
@@ -94,15 +94,21 @@ png image. The `clean_up.sh` script just cleans up the directory in the end.
 
 
 
+-------
+
 ## DB
 
 TODO
 
 
+-------
+
 ## R
 
 TODO
 
+
+-------
 
 ## Wiki
 
