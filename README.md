@@ -134,7 +134,11 @@ by colleagues who also want to publish data via CERA.
 The script merges select model output variables (of atmospheric concentrations 
 and depositions) as well as meteorological and land-use input data into one 
 file per day. Some variables are aggregated during this process and some 
-others are newly calculated. The cdos and NCOs are used for this work. 
+others are newly calculated. The grid (lambert conformal conic projections) is 
+not interpolated but properly documented according to CF-conventions. 
+Generally, the file conforms with the CF-conventions. There are some standard 
+names with ambiguous meaning. Please read the READMe of the CERA data set for 
+details. The cdos and NCOs are used for all of this work. 
 
 In future version, I will add example in- and output files. For now, please 
 have a look at the data published 
