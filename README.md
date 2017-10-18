@@ -82,7 +82,9 @@ png image. The `clean_up.sh` script just cleans up the directory in the end.
 **Reference input data:** T. Seifert, F. Tauber, B. Kayser: 2001: *"A high resolution spherical grid topography of the Baltic Sea - 2nd edition"*, Baltic Sea Science Congress, Stockholm 25-29. November 2001, Poster #147, [www.io-warnemuende.de/iowtopo](https://www.io-warnemuende.de/topography-of-the-baltic-sea.html). 
 
 
-### 11_makeBSH
+
+
+### 11_makeInputSSEMIS
 
 TODO
 
@@ -106,12 +108,17 @@ TODO
 ## R
 
 Five examples of my usage of R are provided in the directory `r_code` (`db` 
-and `wiki` directories contain some more). Three examples are working out of
-the box (`01_*` to `03_*`), whereas two examples contain only code, which
-does not run, and corresponding figures (`11_*` and `12_*`). The later code
+and `wiki` directories contain some more). Five examples are working out of
+the box (`01_*` to `03_*`), whereas four examples contain only code, which
+does not run, and corresponding figures (`11_*` to `14_*`). The later code
 examples do not work because input data and some script parts are missing
 becaues the data are not for public use, the data are too large, or/and 
 called code is not my own one.
+
+The example `14_*` is quite a nice one because it contains detailed comments
+and shows in a *short* script, how I create a CMAS-IOAPI-conform netCDF file
+with R.
+
 
 
 ### 01_basic_plotting
@@ -183,6 +190,18 @@ counterparts. I wanted to catch some special cases prior to the calculation,
 which is why I do it manually. At first a ncap2 (one of the NCOs) calculation
 script is created from within R, then ncap2 is called (from within are), and 
 then the actual calculations are performed in R.
+
+
+### 14_convertBSH 
+The scripts `read_data_v09.R` and `read_data_BSHcmod3_v09.R` read in text 
+output files of the BSHcmod4 and BSHcmod3, respectively, and write the data 
+into new netCDF files. Prior to the upload at github, the code was cleaned
+up (some out-commented lines were remove) but no comments were added since 
+5th Feb. 2015.
+
+These scripts do not run out of the box because some input data is missing.
+If you are working with BSH data in the original text format and would like
+to use my code you are welcome to contact me.
 
 
 -------
