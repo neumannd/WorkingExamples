@@ -1,0 +1,34 @@
+ddep_nox=(NO/30.f+NO2/46.f+HNO3/63.f+N2O5/108.f+ANO3I/62.f+ANO3J/62.f+ANO3K/62.f+NO3/62.f+PAN/121.f+HONO/47.f)/2.4f*10.e-6f;
+ddep_nred=(NH3/17.f+ANH4I/18.f+ANH4J/18.f+ANH4K/18.f)/2.4f*10.e-6f;
+/*  conversion: kg/ha/h => kg/m2/s 
+ * 
+ *  formula 1: a * 1/3600 * 1/10^4 = b 
+ *              a: deposition in kg/ha/h
+ *              b: deposition in kg/m2/s 
+ *
+ *  a is the sum of all relevant nitrogen species' depositions a1, a2, a3, ...
+ *  MN is the molar mass of nitrogen (15 g/mol) and M1, M2, ... are the molar 
+ *    masses of the individual species.
+ * 
+ *  formula 2:
+ *        (a1/M1 + a2/M2 + ...) * MN * 1/3600 * 1/10^4 = b
+ *    <=> (a1/M1 + a2/M2 + ...) / 2.4 * 10^(-6) = b
+ */
+
+ddep_nox@standard_name="tendency_of_atmosphere_mass_content_of_oxidized_nitrogen_compounds_expressed_as_nitrogen_due_to_dry_deposition";
+ddep_nox@long_name="tendency_of_atmosphere_mass_content_of_oxidized_nitrogen_compounds_expressed_as_nitrogen_due_to_dry_deposition";
+ddep_nox@units="kg m-2 s-1";
+ddep_nox@var_desc="sum of gaseous NO, NO2, HNO3, N2O5, HONO, NO3, and PAN (peroxyacetyl nitrate) and particulate NO3- (I, J and K modes)";
+ddep_nox@coordinates="lon lat";
+ddep_nox@_FillValue=-9.e+33f;
+ddep_nox@missing_value=-9.e+33f;
+ddep_nox@grid_mapping = "Lambert_Conformal";
+
+ddep_nred@standard_name="tendency_of_atmosphere_mass_content_of_reduced_nitrogen_compounds_expressed_as_nitrogen_due_to_dry_deposition";
+ddep_nred@long_name="tendency_of_atmosphere_mass_content_of_reduced_nitrogen_compounds_expressed_as_nitrogen_due_to_dry_deposition";
+ddep_nred@units="kg m-2 s-1";
+ddep_nred@var_desc="sum of gaseous NH3 and particulate NH4+ (I, J and K modes)";
+ddep_nred@coordinates="lon lat";
+ddep_nred@_FillValue=-9.e+33f;
+ddep_nred@missing_value=-9.e+33f;
+ddep_nred@grid_mapping = "Lambert_Conformal";

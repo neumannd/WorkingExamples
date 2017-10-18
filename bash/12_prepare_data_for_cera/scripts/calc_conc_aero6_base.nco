@@ -1,0 +1,210 @@
+defdim("time",$TSTEP.size-1);
+defdim("layer",1);
+// defdim("time",24);
+
+// NO - nitrogen monoxide
+gas_no[$time,$layer,$ROW,$COL]=NO(0:$TSTEP.size-2,0,:,:);
+gas_no@standard_name="mass_concentration_of_nitrogen_monoxide_in_air";
+gas_no@long_name="mass_concentration_of_nitrogen_monoxide_in_air";
+gas_no@units="kg m-3";
+gas_no@var_desc="mass concentration of gaseous NO (nitrogen monoxide)";
+gas_no@coordinates="lon lat";
+gas_no@_FillValue=-9.e+33f;
+gas_no@missing_value=-9.e+33f;
+gas_no@grid_mapping = "Lambert_Conformal";
+
+
+// NO2 - nitrogen dioxide
+gas_no2[$time,$layer,$ROW,$COL]=NO2(0:$TSTEP.size-2,0,:,:);
+gas_no2@standard_name="mass_concentration_of_nitrogen_dioxide_in_air";
+gas_no2@long_name="mass_concentration_of_nitrogen_dioxide_in_air";
+gas_no2@units="kg m-3";
+gas_no2@var_desc="mass concentration of gaseous NO2 (nitrogen dioxide)";
+gas_no2@coordinates="lon lat";
+gas_no2@_FillValue=-9.e+33f;
+gas_no2@missing_value=-9.e+33f;
+gas_no2@grid_mapping = "Lambert_Conformal";
+
+
+// SO2 - sulfur dioxide
+gas_so2[$time,$layer,$ROW,$COL]=SO2(0:$TSTEP.size-2,0,:,:);
+gas_so2@standard_name="mass_concentration_of_sulfur_dioxide_in_air";
+gas_so2@long_name="mass_concentration_of_sulfur_dioxide_in_air";
+gas_so2@units="kg m-3";
+gas_so2@var_desc="mass concentration of gaseous SO2 (sulfur dioxide)";
+gas_so2@coordinates="lon lat";
+gas_so2@_FillValue=-9.e+33f;
+gas_so2@missing_value=-9.e+33f;
+gas_so2@grid_mapping = "Lambert_Conformal";
+
+
+// HNO3 - nitric acid
+gas_hno3[$time,$layer,$ROW,$COL]=HNO3(0:$TSTEP.size-2,0,:,:);
+gas_hno3@standard_name="mass_concentration_of_nitric_acid_in_air";
+gas_hno3@long_name="mass_concentration_of_nitric_acid_in_air";
+gas_hno3@units="kg m-3";
+gas_hno3@var_desc="mass concentration of gaseous HNO3 (nitric acid)";
+gas_hno3@coordinates="lon lat";
+gas_hno3@_FillValue=-9.e+33f;
+gas_hno3@missing_value=-9.e+33f;
+gas_hno3@grid_mapping = "Lambert_Conformal";
+
+
+// NH3 - ammonia
+gas_nh3[$time,$layer,$ROW,$COL]=NH3(0:$TSTEP.size-2,0,:,:);
+gas_nh3@standard_name="mass_concentration_of_ammonia_in_air";
+gas_nh3@long_name="mass_concentration_of_ammonia_in_air";
+gas_nh3@units="kg m-3";
+gas_nh3@var_desc="mass concentration of gaseous NH3 (ammonia)";
+gas_nh3@coordinates="lon lat";
+gas_nh3@_FillValue=-9.e+33f;
+gas_nh3@missing_value=-9.e+33f;
+gas_nh3@grid_mapping = "Lambert_Conformal";
+
+
+// O3 - ozone
+gas_o3[$time,$layer,$ROW,$COL]=O3(0:$TSTEP.size-2,0,:,:);
+gas_o3@standard_name="mass_concentration_of_ozone_in_air";
+gas_o3@long_name="mass_concentration_of_ozone_in_air";
+gas_o3@units="kg m-3";
+gas_o3@var_desc="mass concentration of gaseous O3 (ozone)";
+gas_o3@coordinates="lon lat";
+gas_o3@_FillValue=-9.e+33f;
+gas_o3@missing_value=-9.e+33f;
+gas_o3@grid_mapping = "Lambert_Conformal";
+
+
+// SO4-- - sulfate
+tsp_so4[$time,$layer,$ROW,$COL]=ASO4I(0:$TSTEP.size-2,0,:,:)+ASO4J(0:$TSTEP.size-2,0,:,:)+ASO4K(0:$TSTEP.size-2,0,:,:);
+tsp_so4@standard_name="mass_concentration_of_sulfate_dry_aerosol_particles_in_air";
+tsp_so4@long_name="mass_concentration_of_sulfate_dry_aerosol_particles_in_air";
+tsp_so4@units="kg m-3";
+tsp_so4@var_desc="mass concentration of SO4-- (sulfate) in the particle phase; DOES NOT describe total mass of particles that contain sulfate; standard_name might be deprecated in future due to ambiguity";
+tsp_so4@coordinates="lon lat";
+tsp_so4@_FillValue=-9.e+33f;
+tsp_so4@missing_value=-9.e+33f;
+tsp_so4@grid_mapping = "Lambert_Conformal";
+
+
+// NO3- - nitrate
+tsp_no3[$time,$layer,$ROW,$COL]=ANO3I(0:$TSTEP.size-2,0,:,:)+ANO3J(0:$TSTEP.size-2,0,:,:)+ANO3K(0:$TSTEP.size-2,0,:,:);
+tsp_no3@standard_name="mass_concentration_of_nitrate_dry_aerosol_particles_in_air";
+tsp_no3@long_name="mass_concentration_of_nitrate_dry_aerosol_particles_in_air";
+tsp_no3@units="kg m-3";
+tsp_no3@var_desc="mass concentration of NO3- (nitrate) in the particle phase; DOES NOT describe total mass of particles that contain nitrate; standard_name might be deprecated in future due to ambiguity";
+tsp_no3@coordinates="lon lat";
+tsp_no3@_FillValue=-9.e+33f;
+tsp_no3@missing_value=-9.e+33f;
+tsp_no3@grid_mapping = "Lambert_Conformal";
+
+
+// NH4+ - ammonium
+tsp_nh4[$time,$layer,$ROW,$COL]=ANH4I(0:$TSTEP.size-2,0,:,:)+ANH4J(0:$TSTEP.size-2,0,:,:)+ANH4K(0:$TSTEP.size-2,0,:,:);
+tsp_nh4@standard_name="mass_concentration_of_ammonium_dry_aerosol_particles_in_air";
+tsp_nh4@long_name="mass_concentration_of_ammonium_dry_aerosol_particles_in_air";
+tsp_nh4@units="kg m-3";
+tsp_nh4@var_desc="mass concentration of NH4+ (ammonium) in the particle phase; DOES NOT describe total mass of particles that contain ammonium; standard_name might be deprecated in future due to ambiguity";
+tsp_nh4@coordinates="lon lat";
+tsp_nh4@_FillValue=-9.e+33f;
+tsp_nh4@missing_value=-9.e+33f;
+tsp_nh4@grid_mapping = "Lambert_Conformal";
+
+
+// Cl- - chloride
+tsp_cl[$time,$layer,$ROW,$COL]=ACLI(0:$TSTEP.size-2,0,:,:)+ACLJ(0:$TSTEP.size-2,0,:,:)+ACLK(0:$TSTEP.size-2,0,:,:);
+tsp_cl@standard_name="mass_concentration_of_chloride_dry_aerosol_particles_in_air";
+tsp_cl@long_name="mass_concentration_of_chloride_dry_aerosol_particles_in_air";
+tsp_cl@units="kg m-3";
+tsp_cl@var_desc="mass concentration of Cl- (chloride) in the particle phase; DOES NOT describe total mass of particles that contain chloride; standard_name does not exist but is consistent with the standard_names of other particulate species; the standard_name is ambiguous (but consistent)";
+tsp_cl@coordinates="lon lat";
+tsp_cl@_FillValue=-9.e+33f;
+tsp_cl@missing_value=-9.e+33f;
+tsp_cl@grid_mapping = "Lambert_Conformal";
+
+
+// sea salt (depending on the AERO version) - LONG COMMENT BELOW
+
+// standard aero5 
+// tsp_seasaltcat[$time,$layer,$ROW,$COL]=ANAJ(0:$TSTEP.size-2,0,:,:)+ANAK(0:$TSTEP.size-2,0,:,:);
+// tsp_seasaltcat@var_desc="mass concentration of particulate sea salt; DOES NOT describe total mass of particles that contain sea salt; standard_name might be deprecated in future due to ambiguity; sum of ANAJ and ANAK (J and K mode sodium); In CMAQ with AERO5, all sea salt cations are represented by sodium.";
+
+// aero5 with I-mode sea salt particles
+// tsp_seasaltcat[$time,$layer,$ROW,$COL]=ANAI(0:$TSTEP.size-2,0,:,:)+ANAJ(0:$TSTEP.size-2,0,:,:)+ANAK(0:$TSTEP.size-2,0,:,:);
+// tsp_seasaltcat@var_desc="mass concentration of particulate sea salt; DOES NOT describe total mass of particles that contain sea salt; standard_name might be deprecated in future due to ambiguity; sum of ANAI, ANAJ and ANAK (I, J, and K mode sodium); In CMAQ with AERO5, all sea salt cations are represented by sodium. The standard CMAQ aerosol species were extended by ultra-fine sea salt particles (I mode) in this model run.";
+
+// standard aero6
+tsp_seasaltcat[$time,$layer,$ROW,$COL]=ANAJ(0:$TSTEP.size-2,0,:,:)*1.194426+ASEACAT(0:$TSTEP.size-2,0,:,:);
+tsp_seasaltcat@var_desc="mass concentration of particulate sea salt; DOES NOT describe total mass of particles that contain sea salt; standard_name might be deprecated in future due to ambiguity; sum of 1.194426*ANAJ and ASEACAT (J and K mode sea salt cations); In CMAQ with AERO6, all coarse mode (K) sea salt cations are represented by ASEACAT. Fine mode (J) sea salt cations are represented by ANAJ (30.86%, mass fraction to total sea salt), AMGJ (3.68), AKJ (1.14%), and ACAJ (1.18%). However, Mg++, K+, and Ca++ might be emitted by other sources - Na+ not (in the model!).";
+
+// aero6 with I-mode sea salt particles
+// tsp_seasaltcat[$time,$layer,$ROW,$COL]=ANAI(0:$TSTEP.size-2,0,:,:)*1.194426+ANAJ(0:$TSTEP.size-2,0,:,:)*1.194426+ASEACAT(0:$TSTEP.size-2,0,:,:);
+// tsp_seasaltcat@var_desc="mass concentration of particulate sea salt; DOES NOT describe total mass of particles that contain sea salt; standard_name might be deprecated in future due to ambiguity; sum of 1.194426*ANAI, 1.194426*ANAJ, and ASEACAT (I, J, and K mode sea salt cations); In CMAQ with AERO6, all coarse mode (K) sea salt cations are represented by ASEACAT. Fine mode (J) sea salt cations are represented by ANAJ (30.86%, mass fraction to total sea salt), AMGJ (3.68), AKJ (1.14%), and ACAJ (1.18%). However, Mg++, K+, and Ca++ might be emitted by other sources - Na+ not (in the model!). The standard CMAQ aerosol species were extended by ultra-fine sea salt particles (I mode) in this model run. I mode composition equals J mode composition.";
+
+// all cases
+tsp_seasaltcat@standard_name="mass_fraction_of_sea_salt_dry_aerosol_particles_expressed_as_cations_in_air";
+tsp_seasaltcat@long_name="mass_fraction_of_sea_salt_dry_aerosol_particles_expressed_as_cations_in_air";
+tsp_seasaltcat@units="kg m-3";
+tsp_seasaltcat@coordinates="lon lat";
+tsp_seasaltcat@_FillValue=-9.e+33f;
+tsp_seasaltcat@missing_value=-9.e+33f;
+tsp_seasaltcat@grid_mapping = "Lambert_Conformal";
+
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ * || AERO5 - AERO5 - AERO5 - AERO5 - AERO5 - AERO5 - AERO5 ||
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ * 
+ * J mode sea salt cation emissions: ANAJ
+ * K mode sea salt cation emissions: ANAK
+ * 
+ *  Ratios:
+ *   mode | species | mass-ratio 
+ *   -----+---------+------------
+ *    J   | SO4--   |  0.0755 
+ *        | Cl-     |  0.5389
+ *        | Na+     |  0.3856
+ *   -----+---------+------------
+ *    K   | SO4--   |  0.0755
+ *        | Cl-     |  0.5389
+ *        | Cations |  0.3856
+ *  
+ *  Ratio model-sodium to real-sodium:
+ *   real_Na+ J mode = ANAJ*0.78
+ *   real_Na+ K mode = ANAK*0.78
+ *   other sea salt cations J mode = ANAJ*0.22
+ *   other sea salt cations K mode = ANAK*0.22
+ * 
+ * NOTE 1: The ANAJ and ANAK variables represent all sea salt cations, which are
+ *          mainly Na+, Mg++, K+, and Ca++. In CMAQ, it is assumed that 78% of 
+ *          the ANAJ and ANAK actually is sodium, whereas the ramaining 22% are
+ *          other sea salt cations.
+ * NOTE 2: For I mode, the J mode composition is assumed.
+ */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ * || AERO6 - AERO6 - AERO6 - AERO6 - AERO6 - AERO6 - AERO6 ||
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ * 
+ * J mode sea salt cation emissions: ANAJ + AMGJ + AKJ + ACAJ 
+ * K mode sea salt cation emissions: ASEACAT
+ * 
+ *  Ratios:
+ *   mode | species | mass-ratio 
+ *   -----+---------+------------
+ *    J   | SO4--   |  0.0776 
+ *        | Cl-     |  0.5538
+ *        | Na+     |  0.3086
+ *        | Mg++    |  0.0368
+ *        | K+      |  0.0114
+ *        | Ca++    |  0.0118
+ *   -----+---------+------------
+ *    K   | SO4--   |  0.0776
+ *        | Cl-     |  0.0776
+ *        | Cations |  0.3686
+ * 
+ * NOTE 1: K+, MG++ and Mg++ might be emitted from other sources in CMAQ v5 with
+ *          aero6. Na+ is emitted as sea salt only. Therefore, it is reasonable
+ *          to calculate sea salt cation concentrations on the base of sodium.
+ * NOTE 2: For I mode, the J mode composition is assumed.
+ */
+

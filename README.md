@@ -85,13 +85,65 @@ png image. The `clean_up.sh` script just cleans up the directory in the end.
 
 
 ### 11_makeInputSSEMIS
+The script `make_bsh.sh` combines sea surface temperature (SST) and sea 
+surface salinity data of different sources in one file. The output data
+served as input data for sea salt emission calculations performed in R 
+example `12_ssemis`. Data from operational forcasts of the German Federal
+Maritime and Hydrographic Agency (BSH) were used for the North Sea and 
+Baltic Sea. They were provided as text files by the BSH and converted 
+into netCDF in the first processing step (see the `R` example
+`14_convertBSH`).
 
-TODO
+The table below provides an overview of the data sources used to compile
+a Europe-covering SST and salinity field.
+
+      | SST | salinity 
+------+-----+----------
+German Waters | BSH ku | BSH ku 
+non-German North and Baltic Sea | BSH no | BSH no 
+other regions | ERA-Interim | constant values* 
+
+constant salinity values for other regions (not North Sea, not Baltic Sea):
+
+   * Northeast Atlantic: 35 g/kg
+   * Mediterranean Sea: 37 g/kg and higher
+   * Black Sea: 15 g/kg   
+
+The input data from different sources are differently split into individual 
+files. Some contain one year of data per file and others contain one day of 
+data per file. Some daily input and output files are named according to 
+YYYYMMDD format and others to YYYYDDD format (day of year). Therefore, we
+are handling different date indices, which is not quite nice it a shell 
+script.
+
+For each input data source with have a MASK netCDF file. On the base
+of these MASK files, the data are merged with cdo (line 164 to 179). 
+Afterwards we do some nice-making: remove NaNs, deal with artifacts along
+the coastline, renamed dimensions, correct the time variable, and add
+global attributes. The output file conforms with the  conventions of the 
+CMAS-IOAPI (TFLAG as time variable; dimension names TSTEP, LAY, COL, and 
+ROW; global attributes).
 
 
 ### 12_prepare_data_for_cera
+The script `combine4CERA_v04_base.sh` was used to process CMAQ output data 
+for the publication of the data via CERA. I created the script in a way that 
+is *easily* (as easy as possible with limited time for preparation) re-usable 
+by colleagues who also want to publish data via CERA. 
 
-TODO
+The script merges select model output variables (of atmospheric concentrations 
+and depositions) as well as meteorological and land-use input data into one 
+file per day. Some variables are aggregated during this process and some 
+others are newly calculated. The grid (lambert conformal conic projections) is 
+not interpolated but properly documented according to CF-conventions. 
+Generally, the file conforms with the CF-conventions. There are some standard 
+names with ambiguous meaning. Please read the READMe of the CERA data set for 
+details. The cdos and NCOs are used for all of this work. 
+
+In future version, I will add example in- and output files. For now, please 
+have a look at the data published 
+[at CERA](http://cera-www.dkrz.de/WDCC/ui/Compact.jsp?acronym=CCLM_CMAQ_HZG_2008) 
+to get an impression of the output.
 
 
 
