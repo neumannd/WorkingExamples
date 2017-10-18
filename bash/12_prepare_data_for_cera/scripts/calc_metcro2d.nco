@@ -1,0 +1,27 @@
+precip_conv=RC/10;
+precip_strati=RN/10;
+
+// convective precipitation
+precip_conv@standard_name="lwe_thickness_of_convective_precipitation_amount";
+precip_conv@long_name="lwe_thickness_of_convective_precipitation_amount";
+precip_conv@units="m";
+// original unit: cm
+precip_conv@var_desc="convective (unresolved/small-scale) precipitation";
+// original var_desc: convective pcpn per met TSTEP (original: hour)
+precip_conv@coordinates="lon lat";
+precip_conv@_FillValue=-9.e+33f;
+precip_conv@missing_value=-9.e+33f;
+precip_conv@grid_mapping = "Lambert_Conformal";
+
+// stratiform precipitation
+precip_strati@standard_name="lwe_thickness_of_stratiform_precipitation_amount";
+precip_strati@long_name="lwe_thickness_of_stratiform_precipitation_amount";
+precip_strati@units="m";
+// original unit: cm
+precip_strati@var_desc="stratiform (resolved/large-scale) precipitation";
+// original var_desc: "nonconvec. pcpn per met TSTEP (original: hour)
+precip_strati@coordinates="lon lat";
+precip_strati@_FillValue=-9.e+33f;
+precip_strati@missing_value=-9.e+33f;
+precip_strati@grid_mapping = "Lambert_Conformal";
+

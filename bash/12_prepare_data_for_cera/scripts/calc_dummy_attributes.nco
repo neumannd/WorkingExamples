@@ -1,0 +1,11 @@
+
+
+// 
+abc=def;
+abc@standard_name="abc";
+abc@long_name="abc";
+abc@units="kg m-3";
+abc@var_desc="TODO";
+abc@coordinates="lon lat";
+abc@_FillValue=-9.e+33f;
+abc@missing_value=-9.e+33f;

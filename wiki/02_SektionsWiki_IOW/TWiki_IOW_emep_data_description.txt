@@ -1,0 +1,95 @@
+---+!! Data set description template
+
+%TOC{"" title="Table of Content" depth="3"}%
+
+---++ General Information
+
+   * EMEP is the _European Monitoring and Evaluation Programme_ within the _Convention on Long-Range Transboundary Air Pollution_ (CLRTAP)
+   * EMEP consists of several research centers distributed over Europe that focus on different aspects of air pollution
+   * for model data see for details: [[http://emep.int/mscw/index_mscw.html]]
+   * for measurement data see for details: [[http://ebas.nilu.no]]
+
+---++ Data source
+
+   * EMEP programme, reporting of 2016
+   * source: [[http://thredds.met.no/thredds/catalog/data/EMEP/2016_Reporting/catalog.html]]
+   * if they rename it, look here: [[http://thredds.met.no/thredds/catalog.html]]
+   * overview page: [[http://emep.int/mscw/index_mscw.html]]
+
+---++ Variables:
+
+raw data ('org' folder):
+
+   * wet and dry deposition of
+      * oxidized nitrogen
+      * reduced nitrogen
+      * oxidized sulfure
+   * precipitation
+   * ground level concentrations of some air pollutants
+
+processed data:
+
+   * wet, dry, and total deposition of
+      * oxidized nitrogen
+      * reduced nitrogen
+
+---++ documentation of data processsing
+
+   * interpolate data onto another grid
+   * remove some variables
+   * split it into daily files
+
+The scripts for processing the data are located in the /data/atmdep/EMEP_2016_reporting/scripts_HBM-ERGOM folder
+   * interpolate data: process_emep_grid_v0.1.sh
+   * split data into daily files: extract_emep_daily_dep_v0.1.sh
+
+For linking to files with yyyyddd (day of year; no month) names use the scripts in /data/atmdep/EMEP_2016_reporting/scripts_dayOfYear_2_yyyymmddhh:
+   * idea: have the files with 'yyyyddd' names but create links with 'yyyymmdd', which point to the 'yyyyddd' files; link_dating.sh
+
+---++ time span
+
+   * temporal coverage: 2000 to 2013
+   * daily average values
+
+---++ regional coverage
+
+   * North and Baltic Sea
+   * Europe
+   * 50 x 50 km2 spatial grid resolution
+
+---++ data gaps
+
+   * none
+
+---++ place of storage
+
+   * original data: /data/atmdep/EMEP_2016_reporting/org
+   * processed data (for HBM-ERGOM): /data/atmdep/EMEP_2016_reporting/hbm-ergom
+
+---++ data security strategy
+
+   * NONE
+   * data are currently stored at HLRN; I will write them onto tape there; when I leave, my account is removed and the data deleted
+
+---++ How to cite?
+
+   * EMEP Status Report 1/2016, "Transboundary particulate matter, photo-oxidants, acidifying and eutrophying components", Joint MSC-W & CCC & CEIP Report, [[http://emep.int/publ/reports/2016/EMEP_Status_Report_1_2016.pdf][EMEP_Status_Report_1/2016 (pdf 55 MB)]
+
+---++ Keywords
+
+%RED% DELETE ALL KEYWORDS WHICH DO NOT MATCH! %BLACK%
+
+precipitationKW
+
+nutrientKW
+
+balticseaKW northseaKW
+
+surfaceKW
+
+depositionKW
+
+---++ Comments
+
+%COMMENT%
+-- %USERSIG{DanielNeumann - 2017-08-07}%

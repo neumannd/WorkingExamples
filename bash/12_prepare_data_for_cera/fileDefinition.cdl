@@ -1,0 +1,36 @@
+netcdf tmp {
+dimensions:
+	time = UNLIMITED ; // (24 currently)
+	nv = 2;
+variables:
+	double time(time) ;
+		time:units = "seconds since 1900-01-01 00:00:00.0 UTC" ;
+		time:long_name = "time" ;
+		time:bounds = "time_bnds" ;
+	double time_bnds(time,nv) ;
+		time:units = "seconds since 1900-01-01 00:00:00.0 UTC" ;
+		time:long_name = "time_bnds" ;
+
+
+// global attributes:
+		:contact = "Volker Matthias";
+		:contact_email = "volker.matthias@hzg.de";
+		:originator = "Daniel Neumann";
+		:contributor_name = "Volker Matthias, Johannes Bieser, Armin Aulinger";
+		:institution = "Helmholtz-Zentrum Geesthacht, Centre for Materials and Coastal Research, Institute of Coastal Research, Geesthacht, Germany";
+		:source = "model: CMAQ v5.0.1 cb05tump ae5; grid/domain: 24x24 km2 grid covering Northwestern Europe, North Sea and Baltic Sea (CD24); emissions: SMOKE for Europe + shipping emissions based on SHEBA + sea salt emissions inline (GO03); boundary conditions: 72x72 km2 (CD72) grid covering Europe, which gets boundary conditions from TM5; initial condition: initial conditions profile; hardware: Ocean, HZG; compiler set: PGI compiler collection v14.1; meteo: COSMO-CLM reanalysis for coastDat2";
+		:summary = "Standard CMAQ Model run over Northwestern Europe for the year 2008";
+		:standard_name_vocabulary = "CF Standard Names 1.6";
+		:title = "Concentrations of gaseous pollutants and particulate compounds over Northwestern Europe and nitrogen deposition into the North and Baltic Sea in 2008";
+    :creationTime = "2015-04-02T12:00:00Z";
+		:date_created = "2015-04-02";
+		:date_modified = "2017-03-11";
+    :crs = "spherical earth, R = 6370 km";
+		:Conventions="CF-1.6";
+		:history="";
+    
+data:
+
+ time = 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0  ;
+ time_bnds = 0.0,0.0, 0.0,0.0, 0.0,0.0, 0.0,0.0, 0.0,0.0, 0.0,0.0, 0.0,0.0, 0.0,0.0, 0.0,0.0, 0.0,0.0, 0.0,0.0, 0.0,0.0, 0.0,0.0, 0.0,0.0, 0.0,0.0, 0.0,0.0, 0.0,0.0, 0.0,0.0, 0.0,0.0, 0.0,0.0, 0.0,0.0, 0.0,0.0, 0.0,0.0, 0.0,0.0  ;
+}

@@ -1,0 +1,63 @@
+lat=LAT;
+lon=LON;
+z_land_mask=LWMASK;
+z_land_frac=(1.f-LUFRAC_16);
+
+// latitude (north-east)
+lat@standard_name="latitude";
+lat@long_name="latitude";
+lat@units="degree_north";
+lat@bounds="lat_bnds";
+lat@var_desc="Latitude is positive northward; its units of degree_north (or equivalent) indicate this explicitly. In a latitude-longitude system defined with respect to a rotated North Pole, the standard name of grid_latitude should be used instead of latitude. Grid latitude is positive in the grid-northward direction, but its units should be plain degree.";
+
+// longitude (east-west)
+lon@standard_name="longitude";
+lon@long_name="longitude";
+lon@units="degree_east";
+lon@bounds="lon_bnds";
+lon@var_desc="Longitude is positive eastward; its units of degree_east (or equivalent) indicate this explicitly. In a latitude-longitude system defined with respect to a rotated North Pole, the standard name of grid_longitude should be used instead of longitude. Grid longitude is positive in the grid-eastward direction, but its units should be plain degree.";
+
+Lambert_Conformal=1;
+Lambert_Conformal@grid_mapping_name="lambert_conformal_conic";
+Lambert_Conformal@earth_radius=6370.f;
+Lambert_Conformal@standard_parallel = {global@P_ALP, global@P_BET} ;
+Lambert_Conformal@standard_parallel_1=global@P_ALP;
+Lambert_Conformal@standard_parallel_2=global@P_BET;
+Lambert_Conformal@longitude_of_central_meridian=global@XCENT;
+Lambert_Conformal@latitude_of_projection_origin=global@YCENT;
+Lambert_Conformal@false_easting=global@XORIG/1000.f;
+Lambert_Conformal@false_easting_unit="km";
+Lambert_Conformal@false_northing=global@YORIG/1000.f;
+Lambert_Conformal@false_northing_unit="km";
+
+y=array(12.f,24.f,$ROW);
+y@units = "km";
+y@long_name = "y coordinate of projection";
+y@standard_name = "projection_y_coordinate";
+y@comment = "NOTE: The grid cells are not perfectly 24 x 24 km2 in size when the earth is no sphere, which is assumed for this projection.";
+x=array(12.f,24.f,$COL);
+x@units = "km";
+x@long_name = "x coordinate of projection";
+x@standard_name = "projection_x_coordinate";
+x@comment = "NOTE: The grid cells are not perfectly 24 x 24 km2 in size when the earth is no sphere, which is assumed for this projection.";
+
+// land-sea-mask
+z_land_mask@standard_name="land_binary_mask";
+z_land_mask@long_name="land_binary_mask";
+z_land_mask@units="1";
+z_land_mask@var_desc="X_binary_mask has 1 where condition X is met, 0 elsewhere. 1 = land, 0 = sea.";
+z_land_mask@coordinates="lon lat";
+z_land_mask@_FillValue=-9.e+33f;
+z_land_mask@missing_value=-9.e+33f;
+z_land_mask@grid_mapping = "Lambert_Conformal";
+
+
+// land-fraction
+z_land_frac@standard_name="land_area_fraction";
+z_land_frac@long_name="land_area_fraction";
+z_land_frac@units="1";
+z_land_frac@var_desc="'X_area_fraction' means the fraction of horizontal area occupied by X. 'X_area' means the horizontal area occupied by X within the grid cell. Fraction of the grid cell covered by land.";
+z_land_frac@coordinates="lon lat";
+z_land_frac@_FillValue=-9.e+33f;
+z_land_frac@missing_value=-9.e+33f;
+z_land_frac@grid_mapping = "Lambert_Conformal";

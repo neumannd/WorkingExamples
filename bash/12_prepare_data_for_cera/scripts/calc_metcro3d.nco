@@ -1,0 +1,50 @@
+defdim("z",1);
+
+plev[$TSTEP,$z,$ROW,$COL]=PRES(:,0,:,:);
+ta[$TSTEP,$z,$ROW,$COL]=TA(:,0,:,:);
+rho[$TSTEP,$z,$ROW,$COL]=DENS(:,0,:,:);
+mixing_ratio[$TSTEP,$z,$ROW,$COL]=QV(:,0,:,:);
+
+// pressure
+plev@standard_name="air_pressure";
+plev@long_name="air_pressure";
+plev@units="Pa";
+// same original unit
+plev@var_desc="air pressure in the ground layer";
+plev@coordinates="lon lat";
+plev@_FillValue=-9.e+33f;
+plev@missing_value=-9.e+33f;
+plev@grid_mapping = "Lambert_Conformal";
+
+// temperature
+ta@standard_name="air_temperature";
+ta@long_name="air_temperature";
+ta@units="K";
+// same original unit
+ta@var_desc="air temperature in the ground layer (not 2m and not 10m temperature)";
+ta@coordinates="lon lat";
+ta@_FillValue=-9.e+33f;
+ta@missing_value=-9.e+33f;
+ta@grid_mapping = "Lambert_Conformal";
+
+// density
+rho@standard_name="air_density";
+rho@long_name="air_density";
+rho@units="kg m-3";
+// same original unit: km/m**3
+rho@var_desc="density of air: MM5-total density, WRF-dry density";
+rho@coordinates="lon lat";
+rho@_FillValue=-9.e+33f;
+rho@missing_value=-9.e+33f;
+rho@grid_mapping = "Lambert_Conformal";
+
+// mixing ratio
+mixing_ratio@standard_name="humidity_mixing_ratio";
+mixing_ratio@long_name="humidity_mixing_ratio";
+mixing_ratio@units="1";
+// original unit: kg/kg
+mixing_ratio@var_desc="Humidity mixing ratio of a parcel of moist air is the ratio of the mass of water vapor to the mass of dry air. Also denoted 'as water vapor mixing ratio'. Unit could be also kg/kg.";
+mixing_ratio@coordinates="lon lat";
+mixing_ratio@_FillValue=-9.e+33f;
+mixing_ratio@missing_value=-9.e+33f;
+mixing_ratio@grid_mapping = "Lambert_Conformal";
