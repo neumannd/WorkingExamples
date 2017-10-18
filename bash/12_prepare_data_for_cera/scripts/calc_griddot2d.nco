@@ -1,0 +1,11 @@
+defdim("x",$COL.size-1);
+defdim("y",$ROW.size-1);
+defdim("nv",2);
+
+lat_bnds[$y,$x,$nv]=0.0;
+lat_bnds(0:$y.size-1,0:$x.size-1,0)=(LAT(0:$ROW.size-2,0:$COL.size-2)+LAT(0:$ROW.size-2,1:$COL.size-1))/2.0;
+lat_bnds(0:$y.size-1,0:$x.size-1,1)=(LAT(1:$ROW.size-1,0:$COL.size-2)+LAT(1:$ROW.size-1,1:$COL.size-1))/2.0;
+
+lon_bnds[$y,$x,$nv]=0.0;
+lon_bnds(0:$y.size-1,0:$x.size-1,0)=(LON(0:$ROW.size-2,0:$COL.size-2)+LON(1:$ROW.size-1,0:$COL.size-2))/2.0;
+lon_bnds(0:$y.size-1,0:$x.size-1,1)=(LON(0:$ROW.size-2,1:$COL.size-1)+LON(1:$ROW.size-1,1:$COL.size-1))/2.0;
