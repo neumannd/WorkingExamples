@@ -97,8 +97,8 @@ into netCDF in the first processing step (see the `R` example
 The table below provides an overview of the data sources used to compile
 a Europe-covering SST and salinity field.
 
-      | SST | salinity 
-------+-----+----------
+. | SST | salinity 
+--|-----|----------
 German Waters | BSH ku | BSH ku 
 non-German North and Baltic Sea | BSH no | BSH no 
 other regions | ERA-Interim | constant values* 
