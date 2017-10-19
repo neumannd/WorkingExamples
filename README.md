@@ -1,5 +1,5 @@
 # WorkingExamles
-This repository contains some examples of my work.
+This repository contains some examples of my work as an add-on for job applications.
 
 It is divided into four subcategories (sub-directory name in brackets):
 
@@ -9,7 +9,7 @@ It is divided into four subcategories (sub-directory name in brackets):
    * [R](#R) (r_code): R-code for plotting and data processing
    * [wiki](#wiki) (wiki): example wiki articles, which I posted in the past years
 
-The following examples might be of particular interest:
+**The following examples might be of particular interest:**
 
    * [bash/04_plot_bathymetry](#04_plot_bathymetry): bash script using GMT to plot bathymetry data
    * [bash/12_prepare_data_for_cera](#12_prepare_data_for_cera): bash script to prepare model output data for the publication at CERA (does not run out-of-the-box but nice to look at)
@@ -17,6 +17,8 @@ The following examples might be of particular interest:
    * [R/03_explain_ammoniumDryParticles](#03_explain_ammoniumDryParticles): a nice plot script, which creates three schematic figures
 
 -------
+
+[up](#WorkingExamles)
 
 ## bash
 
@@ -173,6 +175,7 @@ simplify the validation process, I
    * wrote R functions to import in the standardized EMEP text files into R
    * created as PostgreSQL database to locally host EMEP data
    * wrote R functions to import EMEP data into the database.
+
 A colleague wrote R functions to export the EMEP data from the database and
 visualized them. The three aspects for I was responsible are presented here:
 

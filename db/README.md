@@ -14,6 +14,7 @@ simplify the validation process, I
    * wrote R functions to import in the standardized EMEP text files into R
    * created as PostgreSQL database to locally host EMEP data
    * wrote R functions to import EMEP data into the database.
+
 A colleague wrote R functions to export the EMEP data from the database and
 visualized them. The three aspects for I was responsible are presented here:
 
