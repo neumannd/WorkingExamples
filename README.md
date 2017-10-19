@@ -246,13 +246,14 @@ manual pages of the functions.
 
 ## R
 
-Five examples of my usage of R are provided in the directory `r_code` (`db` 
-and `wiki` directories contain some more). Five examples are working out of
+Eight examples of my usage of R are provided in the directory `r_code` (`db` 
+and `wiki` directories contain some more). Three examples are working out of
 the box (`01_*` to `03_*`), whereas four examples contain only code, which
 does not run, and corresponding figures (`11_*` to `14_*`). The later code
 examples do not work because input data and some script parts are missing
 becaues the data are not for public use, the data are too large, or/and 
-called code is not my own one.
+called code is not my own one. The `21_*` just points to `db/R_TOOLS` where
+two R packages are presented.
 
 The example `14_*` is quite a nice one because it contains detailed comments
 and shows in a *short* script, how I create a CMAS-IOAPI-conform netCDF file
@@ -342,6 +343,11 @@ These scripts do not run out of the box because some input data is missing.
 If you are working with BSH data in the original text format and would like
 to use my code you are welcome to contact me.
 
+
+### 21_own_R packages
+
+Please go to `/db/R_TOOLS` in this repository to see two R packages written 
+by me.
 
 -------
 
