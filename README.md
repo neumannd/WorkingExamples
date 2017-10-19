@@ -17,11 +17,11 @@ It is divided into four subcategories (sub-directory name in brackets):
    * [R/03_explain_ammoniumDryParticles](#03_explain_ammoniumDryParticles): a nice plot script, which creates three schematic figures
 
 
-## Table of Contents
+## Table_of_Contents
 
    * [Table of Contents](#Table_of_Contents)
    * [bash](#bash)
-      * [01_makeOCEAN_basic](#01_makeOCEAN_basic)
+      * [01_makeOCEAN_basic](##01_makeOCEAN_basic)
       * [02_makeGridDef](#02_makeGridDef)
       * [03_interpolate2CMAQ](#03_interpolate2CMAQ)
       * [04_plot_bathymetry](#04_plot_bathymetry)
