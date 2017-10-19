@@ -47,7 +47,7 @@ It is divided into four subcategories (sub-directory name in brackets):
 
 -------
 
-[up](#workingexamples)
+[up](#working-examples)
 
 ## bash
 
@@ -188,7 +188,7 @@ to get an impression of the output.
 
 -------
 
-[up](#workingexamples)
+[up](#working-examples)
 
 ## database
 
@@ -285,7 +285,7 @@ manual pages of the functions.
 
 -------
 
-[up](#workingexamples)
+[up](#working-examples)
 
 ## R
 
@@ -394,7 +394,7 @@ by me.
 
 -------
 
-[up](#workingexamples)
+[up](#working-examples)
 
 ## wiki
 
