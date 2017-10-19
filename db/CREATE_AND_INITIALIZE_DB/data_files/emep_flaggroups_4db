@@ -1,0 +1,10 @@
+9	Missing flags
+8	Flags for undefined data elements
+7	Flags used when the value is unknown
+6	Mechanical or instrumental problem
+5	Chemical problem
+4	Extreme or inconsistent values
+3	Flags for aggregated datasets
+2	Exception flags assigned by the database co-ordinator
+1	Exception flags for accepted, irregular data
+0	Valid data

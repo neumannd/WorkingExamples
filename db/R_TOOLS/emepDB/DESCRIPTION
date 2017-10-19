@@ -1,0 +1,13 @@
+Package: emepDB
+Title: Writes EMEP data into our database
+Version: 1.6.0.0
+Authors@R: person("Daniel", "Neumann", email = "daniel.neumann@___.de", role = c("aut", "cre"))
+Description: This package was made to handle the import of EMEP measurement data from R into a PostgreSQL database. It also provides functions to update, add and remove further data of the database, such as adding stations and quality flags. The heart of this package ist the addFile function. The emepTools package v1.2 or higher is a necessary dependency for this package.
+Depends:
+    R (>= 3.2.2),
+    emepTools (>= 1.2.0),
+    RODBC
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 5.0.1
