@@ -1,4 +1,4 @@
-# WorkingExamles
+# Working Examples
 This repository contains some examples of my work as an add-on for job applications.
 
 It is divided into four subcategories (sub-directory name in brackets):
@@ -6,48 +6,48 @@ It is divided into four subcategories (sub-directory name in brackets):
    * [bash](#bash) (bash): bash scripts using cdo, NCO, netCDF binaries, GMT, and some default
             command line tools
    * [database](#database) (db): example case for using a database
-   * [R](#R) (r_code): R-code for plotting and data processing
+   * [R](#r) (r_code): R-code for plotting and data processing
    * [wiki](#wiki) (wiki): example wiki articles, which I posted in the past years
 
 **The following examples might be of particular interest:**
 
    * [bash/04_plot_bathymetry](#04_plot_bathymetry): bash script using GMT to plot bathymetry data
    * [bash/12_prepare_data_for_cera](#12_prepare_data_for_cera): bash script to prepare model output data for the publication at CERA (does not run out-of-the-box but nice to look at)
-   * [database/R_TOOLS](#R_TOOLS): two R packages created by me
-   * [R/03_explain_ammoniumDryParticles](#03_explain_ammoniumDryParticles): a nice plot script, which creates three schematic figures
+   * [database/R_TOOLS](#r_tools): two R packages created by me
+   * [R/03_explain_ammoniumDryParticles](#03_explain_ammoniumdryparticles): a nice plot script, which creates three schematic figures
 
 
-## Table_of_Contents
+## Table of Contents
 
-   * [Table of Contents](#table_of_contents)
+   * [Table of Contents](#table-of-contents)
    * [bash](#bash)
-      * [01_makeOCEAN_basic](##01_makeocean_basic)
+      * [01_makeOCEAN_basic](#01_makeocean_basic)
       * [02_makeGridDef](#02_makegriddef)
       * [03_interpolate2CMAQ](#03_interpolate2cmaq)
       * [04_plot_bathymetry](#04_plot_bathymetry)
-      * [11_makeInputSSEMIS](#11_makeInputSSEMIS)
+      * [11_makeInputSSEMIS](#11_makeInputssemis)
       * [12_prepare_data_for_cera](#12_prepare_data_for_cera)
    * [database](#database)
-      * [CREATE_AND_INITIALIZE_DB](#CREATE_AND_INITIALIZE_DB)
-      * [DIAGRAMS](#DIAGRAMS)
-      * [R_TOOLS](#R_TOOLS)
+      * [CREATE_AND_INITIALIZE_DB](#create_and_initialize_db)
+      * [DIAGRAMS](#diagrams)
+      * [R_TOOLS](#r_tools)
    * [R](#r)
       * [01_basic_plotting](#01_basic_plotting)
       * [02_using_screen](#02_using_screen)
-      * [03_explain_ammoniumDryParticles](#03_explain_ammoniumDryParticles)
+      * [03_explain_ammoniumDryParticles](#03_explain_ammoniumdryparticles)
       * [11_time_series_seasalt](#11_time_series_seasalt)
       * [12_ssemis](#12_ssemis)
-      * [13_data_processing_R_NCO](#13_data_processing_R_NCO)
-      * [14_convertBSH](#14_convertBSH)
-      * [21_own_R_packages](#21_own_R_packages)
+      * [13_data_processing_R_NCO](#13_data_processing_r_nco)
+      * [14_convertBSH](#14_convertbsh)
+      * [21_own_R_packages](#21_own_r_packages)
    * [wiki](#wiki)
-      * [01_AbteilungsWiki_HZG](#01_AbteilungsWiki_HZG)
-      * [02_SektionsWiki_IOW](#02_SektionsWiki_IOW)
-      * [03_EigenesWiki](#03_EigenesWiki)
+      * [01_AbteilungsWiki_HZG](#01_abteilungswiki_hzg)
+      * [02_SektionsWiki_IOW](#02_sektionswiki_iow)
+      * [03_EigenesWiki](#03_eigeneswiki)
 
 -------
 
-[up](#WorkingExamles)
+[up](#workingexamples)
 
 ## bash
 
@@ -188,7 +188,7 @@ to get an impression of the output.
 
 -------
 
-[up](#WorkingExamles)
+[up](#workingexamples)
 
 ## database
 
@@ -285,7 +285,7 @@ manual pages of the functions.
 
 -------
 
-[up](#WorkingExamles)
+[up](#workingexamples)
 
 ## R
 
@@ -394,7 +394,7 @@ by me.
 
 -------
 
-[up](#WorkingExamles)
+[up](#workingexamples)
 
 ## wiki
 
