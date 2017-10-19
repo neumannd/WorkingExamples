@@ -19,11 +19,11 @@ It is divided into four subcategories (sub-directory name in brackets):
 
 ## Table_of_Contents
 
-   * [Table of Contents](#Table_of_Contents)
+   * [Table of Contents](#table_of_contents)
    * [bash](#bash)
-      * [01_makeOCEAN_basic](##01_makeOCEAN_basic)
-      * [02_makeGridDef](#02_makeGridDef)
-      * [03_interpolate2CMAQ](#03_interpolate2CMAQ)
+      * [01_makeOCEAN_basic](##01_makeocean_basic)
+      * [02_makeGridDef](#02_makegriddef)
+      * [03_interpolate2CMAQ](#03_interpolate2cmaq)
       * [04_plot_bathymetry](#04_plot_bathymetry)
       * [11_makeInputSSEMIS](#11_makeInputSSEMIS)
       * [12_prepare_data_for_cera](#12_prepare_data_for_cera)
@@ -31,7 +31,7 @@ It is divided into four subcategories (sub-directory name in brackets):
       * [CREATE_AND_INITIALIZE_DB](#CREATE_AND_INITIALIZE_DB)
       * [DIAGRAMS](#DIAGRAMS)
       * [R_TOOLS](#R_TOOLS)
-   * [R](#R)
+   * [R](#r)
       * [01_basic_plotting](#01_basic_plotting)
       * [02_using_screen](#02_using_screen)
       * [03_explain_ammoniumDryParticles](#03_explain_ammoniumDryParticles)
