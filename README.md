@@ -3,11 +3,11 @@ This repository contains some examples of my work.
 
 It is divided into four subcategories (sub-directory name in brackets):
 
-   * bash (bash): bash scripts using cdo, NCO, netCDF binaries, GMT, and some default
+   * [bash](#bash) (bash): bash scripts using cdo, NCO, netCDF binaries, GMT, and some default
             command line tools
-   * database (db): example case for using a database
-   * R (r_code): R-code for plotting and data processing
-   * Wikis (wiki): example wiki articles, which I posted in the past years
+   * [database](#database) (db): example case for using a database
+   * [R](#R) (r_code): R-code for plotting and data processing
+   * [wiki](#wiki) (wiki): example wiki articles, which I posted in the past years
 
 -------
 
@@ -150,7 +150,7 @@ to get an impression of the output.
 
 -------
 
-## DB
+## database
 
 During my work at the Helmholtz-Zentrum Geesthacht, we validated atmospheric
 chemistry transport model simulations with data from the EMEP measurement 
@@ -344,14 +344,14 @@ If you are working with BSH data in the original text format and would like
 to use my code you are welcome to contact me.
 
 
-### 21_own_R packages
+### 21_own_R_packages
 
 Please go to `/db/R_TOOLS` in this repository to see two R packages written 
 by me.
 
 -------
 
-## Wiki
+## wiki
 
 In diesem Verzeichnis sind einige Beispiele von meinen Beitraegen zu Wikis untergebracht.
 
