@@ -1,0 +1,143 @@
+precipitation_amount	precip	precip	mm	Acidifying Eutrophying compounds
+precipitation_amount_off	precip	precip_off	mm	Acidifying Eutrophying compounds
+pH	precip	pH	pH units	Acidifying Eutrophying compounds
+sulphate_total	precip	SO4	mg S/l	Acidifying Eutrophying compounds
+sulphate_corrected	precip	XSO4	mg S/l	Acidifying Eutrophying compounds
+ammonium	precip	NH4	mg N/l	Acidifying Eutrophying compounds
+nitrate	precip	NO3	mg N/l	Acidifying Eutrophying compounds
+sodium	precip	Na	mg/l	Acidifying Eutrophying compounds
+magnesium	precip	Mg	mg/l	Acidifying Eutrophying compounds
+chloride	precip	Cl	mg/l	Acidifying Eutrophying compounds
+calcium	precip	Ca	mg/l	Acidifying Eutrophying compounds
+potassium	precip	K	mg/l	Acidifying Eutrophying compounds
+acidity	precip	H	ue H/l	Acidifying Eutrophying compounds
+conductivity	precip	Cond	uS/cm	Acidifying Eutrophying compounds
+sulphur_dioxide	air	SO2	ug S/m3	Acidifying Eutrophying compounds
+Nitrogen dioxide	air	Nitrogen dioxide	ug N/m3	Acidifying Eutrophying compounds
+nitrate	air	HNO3	ug N/m3	Acidifying Eutrophying compounds
+ammonia	air	NH3	ug N/m3	Acidifying Eutrophying compounds
+sulphate_total	aerosol	SO4	ug S/m3	Acidifying Eutrophying compounds
+sulphate_total	pm10	SO4	ug S/m3	Acidifying Eutrophying compounds
+sulphate_total	pm25	SO4	ug S/m3	Acidifying Eutrophying compounds
+sulphate_corrected	aerosol	XSO4	ug S/m3	Acidifying Eutrophying compounds
+sulphate_corrected	pm10	XSO4	ug S/m3	Acidifying Eutrophying compounds
+sulphate_corrected	pm25	XSO4	ug S/m3	Acidifying Eutrophying compounds
+nitrate	aerosol	NO3	ug N/m3	Acidifying Eutrophying compounds
+nitrate	pm10	NO3	ug N/m3	Acidifying Eutrophying compounds
+nitrate	pm25	NO3	ug N/m3	Acidifying Eutrophying compounds
+ammonium	aerosol	NH4	ug N/m3	Acidifying Eutrophying compounds
+ammonium	pm10	NH4	ug N/m3	Acidifying Eutrophying compounds
+ammonium	pm25	NH4	ug N/m3	Acidifying Eutrophying compounds
+acidity	aerosol	H	ne H/m3	Acidifying Eutrophying compounds
+acidity	pm10	H	ne H/m3	Acidifying Eutrophying compounds
+acidity	pm25	H	ne H/m3	Acidifying Eutrophying compounds
+sodium	aerosol	Na	ug/m3	Acidifying Eutrophying compounds
+sodium	pm10	Na	ug/m3	Acidifying Eutrophying compounds
+sodium	pm25	Na	ug/m3	Acidifying Eutrophying compounds
+magnesium	aerosol	Mg	ug/m3	Acidifying Eutrophying compounds
+magnesium	pm10	Mg	ug/m3	Acidifying Eutrophying compounds
+magnesium	pm25	Mg	ug/m3	Acidifying Eutrophying compounds
+chloride	aerosol	Cl	ug/m3	Acidifying Eutrophying compounds
+chloride	pm10	Cl	ug/m3	Acidifying Eutrophying compounds
+chloride	pm25	Cl	ug/m3	Acidifying Eutrophying compounds
+calcium	aerosol	Ca	ug/m3	Acidifying Eutrophying compounds
+calcium	pm10	Ca	ug/m3	Acidifying Eutrophying compounds
+calcium	pm25	Ca	ug/m3	Acidifying Eutrophying compounds
+potassium	aerosol	K	ug/m3	Acidifying Eutrophying compounds
+potassium	pm10	K	ug/m3	Acidifying Eutrophying compounds
+potassium	pm25	K	ug/m3	Acidifying Eutrophying compounds
+sum_nitric_acid_and_nitrate	air+aerosol	SNO3	ug N/m3	Acidifying Eutrophying compounds
+sum_ammonia_and_ammonium	air+aerosol	SNH4	ug N/m3	Acidifying Eutrophying compounds
+O3	air	O3	ug/m3	Ozone
+aluminium	precip	Al	ug/l	Heavy metals
+arsenic	precip	As	ug/l	Heavy metals
+cadmium	precip	Cd	ug/l	Heavy metals
+cobalt	precip	Co	ug/l	Heavy metals
+chromium	precip	Cr	ug/l	Heavy metals
+copper	precip	Cu	ug/l	Heavy metals
+iron	precip	Fe	ug/l	Heavy metals
+manganese	precip	Mn	ug/l	Heavy metals
+nickel	precip	Ni	ug/l	Heavy metals
+lead	precip	Pb	ug/l	Heavy metals
+titan	precip	Ti	ug/l	Heavy metals
+vanadium	precip	V	ug/l	Heavy metals
+zinc	precip	Zn	ug/l	Heavy metals
+total_mercury	precip	Hg	ng/l	Heavy metals
+aluminium	aerosol	Al	ng/m3	Heavy metals
+aluminium	pm10	Al	ng/m3	Heavy metals
+aluminium	pm25	Al	ng/m3	Heavy metals
+arsenic	aerosol	As	ng/m3	Heavy metals
+arsenic	pm10	As	ng/m3	Heavy metals
+arsenic	pm25	As	ng/m3	Heavy metals
+cadmium	aerosol	Cd	ng/m3	Heavy metals
+cadmium	pm10	Cd	ng/m3	Heavy metals
+cadmium	pm25	Cd	ng/m3	Heavy metals
+cobalt	aerosol	Co	ng/m3	Heavy metals
+cobalt	pm10	Co	ng/m3	Heavy metals
+cobalt	pm25	Co	ng/m3	Heavy metals
+chromium	aerosol	Cr	ng/m3	Heavy metals
+chromium	pm10	Cr	ng/m3	Heavy metals
+chromium	pm25	Cr	ng/m3	Heavy metals
+copper	aerosol	Cu	ng/m3	Heavy metals
+copper	pm10	Cu	ng/m3	Heavy metals
+copper	pm25	Cu	ng/m3	Heavy metals
+iron	aerosol	Fe	ng/m3	Heavy metals
+iron	pm10	Fe	ng/m3	Heavy metals
+iron	pm25	Fe	ng/m3	Heavy metals
+manganese	aerosol	Mn	ng/m3	Heavy metals
+manganese	pm10	Mn	ng/m3	Heavy metals
+manganese	pm25	Mn	ng/m3	Heavy metals
+nickel	aerosol	Ni	ng/m3	Heavy metals
+nickel	pm10	Ni	ng/m3	Heavy metals
+nickel	pm25	Ni	ng/m3	Heavy metals
+lead	aerosol	Pb	ng/m3	Heavy metals
+lead	pm10	Pb	ng/m3	Heavy metals
+lead	pm25	Pb	ng/m3	Heavy metals
+titan	aerosol	Ti	ng/m3	Heavy metals
+titan	pm10	Ti	ng/m3	Heavy metals
+titan	pm25	Ti	ng/m3	Heavy metals
+vanadium	aerosol	V	ng/m3	Heavy metals
+vanadium	pm10	V	ng/m3	Heavy metals
+vanadium	pm25	V	ng/m3	Heavy metals
+zinc	aerosol	Zn	ng/m3	Heavy metals
+zinc	pm10	Zn	ng/m3	Heavy metals
+zinc	pm25	Zn	ng/m3	Heavy metals
+total_mercury	air	Hg	ng/m3	Heavy metals
+total_mercury	aerosol	Hg	ng/m3	Heavy metals
+heavy_metal_deposition	wetdep	heav_met_dep	ug/m2day	Heavy metals
+POPs	precip	POPs	ng/l	POPs
+PAH	air	PAH	ng/m3	POPs
+Pesticides	air	Pesticides	pg/m3	POPs
+HCB	air	HCB	pg/m3	POPs
+PCB	air	PCB	pg/m3	POPs
+POP_deposition	precip+dry_dep	POP_dep	ng/m2day	POPs
+pm10_mass	pm10	pm10_mass	ug/m3	Particulate matter
+pm25_mass	pm25	pm25_mass	ug/m3	Particulate matter
+suspended_particulate_matter	aerosol	susp_part_mat	ug/m3	Particulate matter
+suspended_particulate_matter	pm10	susp_part_mat	ug/m3	Particulate matter
+suspended_particulate_matter	pm25	susp_part_mat	ug/m3	Particulate matter
+elemental_carbon	aerosol	EC	ug/m3	Particulate matter
+elemental_carbon	pm10	EC	ug/m3	Particulate matter
+elemental_carbon	pm25	EC	ug/m3	Particulate matter
+elemental_carbon	pm1	EC	ug/m3	Particulate matter
+organic_carbon	aerosol	OC	ug/m3	Particulate matter
+organic_carbon	pm10	OC	ug/m3	Particulate matter
+organic_carbon	pm25	OC	ug/m3	Particulate matter
+organic_carbon	pm1	OC	ug/m3	Particulate matter
+total_carbon	aerosol	TC	ug/m3	Particulate matter
+total_carbon	pm10	TC	ug/m3	Particulate matter
+total_carbon	pm25	TC	ug/m3	Particulate matter
+total_carbon	pm1	TC	ug/m3	Particulate matter
+black_carbon	aerosol	BC	ug/m3	Particulate matter
+black_carbon	pm10	BC	ug/m3	Particulate matter
+black_carbon	pm25	BC	ug/m3	Particulate matter
+black_carbon	pm1	BC	ug/m3	Particulate matter
+Hydrocarbons	air	Hydrocarbons	ppt(v)	VOC
+Carbonyls	air	Carbonyls	ug/m3	VOC
+pressure	instrument	P	hPa	Meteorology
+temperature	instrument	T	K	Meteorology
+wind_speed	met	wspd10m	m/s	Meteorology
+wind_direction	met	wdir10m	deg	Meteorology
+temperature	met	T	deg C	Meteorology
+dewpoint_temperature	met	Td	deg C	Meteorology
+relative_humitidty	met	RH	%	Meteorology
