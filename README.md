@@ -9,6 +9,13 @@ It is divided into four subcategories (sub-directory name in brackets):
    * [R](#R) (r_code): R-code for plotting and data processing
    * [wiki](#wiki) (wiki): example wiki articles, which I posted in the past years
 
+The following examples might be of particular interest:
+
+   * [bash/04_plot_bathymetry](#04_plot_bathymetry): bash script using GMT to plot bathymetry data
+   * [bash/12_prepare_data_for_cera](#12_prepare_data_for_cera): bash script to prepare model output data for the publication at CERA (does not run out-of-the-box but nice to look at)
+   * [database/R_TOOLS](#R_TOOLS): two R packages created by me
+   * [R/03_explain_ammoniumDryParticles](#03_explain_ammoniumDryParticles): a nice plot script, which creates three schematic figures
+
 -------
 
 ## bash
