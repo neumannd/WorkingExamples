@@ -1,15 +1,56 @@
-# WorkingExamles
-This repository contains some examples of my work.
+# Working Examples
+This repository contains some examples of my work as an add-on for job applications.
 
 It is divided into four subcategories (sub-directory name in brackets):
 
-   * bash (bash): bash scripts using cdo, NCO, netCDF binaries, GMT, and some default
+   * [bash](#bash) (bash): bash scripts using cdo, NCO, netCDF binaries, GMT, and some default
             command line tools
-   * database (db): example case for using a database
-   * R (r_code): R-code for plotting and data processing
-   * Wikis (wiki): example wiki articles, which I posted in the past years
+   * [database](#database) (db): example case for using a database
+   * [R](#r) (r_code): R-code for plotting and data processing
+   * [wiki](#wiki) (wiki): example wiki articles, which I posted in the past years
+
+**The following examples might be of particular interest:**
+
+   * [bash/04_plot_bathymetry](#04_plot_bathymetry): bash script using GMT to plot bathymetry data
+   * [bash/12_prepare_data_for_cera](#12_prepare_data_for_cera): bash script to prepare model output data for the publication at CERA (does not run out-of-the-box but nice to look at)
+   * [database/R_TOOLS](#r_tools): two R packages created by me
+   * [R/03_explain_ammoniumDryParticles](#03_explain_ammoniumdryparticles): a nice plot script, which creates three schematic figures
 
 -------
+
+[up](#working-examples)
+
+## Table of Contents
+
+   * [Table of Contents](#table-of-contents)
+   * [bash](#bash)
+      * [01_makeOCEAN_basic](#01_makeocean_basic)
+      * [02_makeGridDef](#02_makegriddef)
+      * [03_interpolate2CMAQ](#03_interpolate2cmaq)
+      * [04_plot_bathymetry](#04_plot_bathymetry)
+      * [11_makeInputSSEMIS](#11_makeInputssemis)
+      * [12_prepare_data_for_cera](#12_prepare_data_for_cera)
+   * [database](#database)
+      * [CREATE_AND_INITIALIZE_DB](#create_and_initialize_db)
+      * [DIAGRAMS](#diagrams)
+      * [R_TOOLS](#r_tools)
+   * [R](#r)
+      * [01_basic_plotting](#01_basic_plotting)
+      * [02_using_screen](#02_using_screen)
+      * [03_explain_ammoniumDryParticles](#03_explain_ammoniumdryparticles)
+      * [11_time_series_seasalt](#11_time_series_seasalt)
+      * [12_ssemis](#12_ssemis)
+      * [13_data_processing_R_NCO](#13_data_processing_r_nco)
+      * [14_convertBSH](#14_convertbsh)
+      * [21_own_R_packages](#21_own_r_packages)
+   * [wiki](#wiki)
+      * [01_AbteilungsWiki_HZG](#01_abteilungswiki_hzg)
+      * [02_SektionsWiki_IOW](#02_sektionswiki_iow)
+      * [03_EigenesWiki](#03_eigeneswiki)
+
+-------
+
+[up](#working-examples)
 
 ## bash
 
@@ -97,11 +138,11 @@ into netCDF in the first processing step (see the `R` example
 The table below provides an overview of the data sources used to compile
 a Europe-covering SST and salinity field.
 
-      | SST | salinity 
-------+-----+----------
-German Waters | BSH ku | BSH ku 
-non-German North and Baltic Sea | BSH no | BSH no 
-other regions | ERA-Interim | constant values* 
+| Region | SST | salinity |
+| :----- | :-- | :------- |
+| German Waters | BSH ku | BSH ku |
+| non-German North and Baltic Sea | BSH no | BSH no |
+| other regions | ERA-Interim | constant values* |
 
 constant salinity values for other regions (not North Sea, not Baltic Sea):
 
@@ -150,22 +191,115 @@ to get an impression of the output.
 
 -------
 
-## DB
+[up](#working-examples)
 
-TODO
+## database
+
+During my work at the Helmholtz-Zentrum Geesthacht, we validated atmospheric
+chemistry transport model simulations with data from the EMEP measurement 
+database. EMEP is the *European Measurement and Evaluation Programme*. Within
+EMEP, measurement data from European background air quality monitoring 
+stations is collected. The data can be freely downloaded from the
+[NILU's EBAS database via a web interface](http://ebas.nilu.no).
+
+The EMEP data are provided in one file per year, station, and parameter. Some
+parameters can also be summarized in one file. The EMEP files are structured
+according to the NASA AMES format. The EMEP format is a bit stricter. To 
+simplify the validation process, I
+   * wrote R functions to import in the standardized EMEP text files into R
+   * created as PostgreSQL database to locally host EMEP data
+   * wrote R functions to import EMEP data into the database.
+
+A colleague wrote R functions to export the EMEP data from the database and
+visualized them. The three aspects for I was responsible are presented here:
+
+   * `CREATE_AND_INITIALIZE_DB`: set up and initialize database
+   * `DIAGRAMS`: Entity Relationship diagram of the database
+   * `R_TOOLS`:
+      * two R packages, which are for reading EMEP text files 
+         (`R_TOOLS/emepTools`) and for importing EMEP data into the database 
+         (`R_TOOLS/emepDB`)
+      * two R scripts and some dummy data to test the packages
+
+The test script for the `emepDB` packages is also an example for generally 
+using the package. Maybe the one or the other reader is interested in it.
+
+In the emepDB package, I use `RODBC` to access the database. ODBC provides 
+a universal database access interface. The user needs to have 
+
+   * install the appropriate ODBC package on his/her operating system,
+   * installed a PostgreSQL-OBDC driver, and
+   * configured the OBDC package to *know* the database
+   
+This has the advantage that the database does not necessarily need to be a 
+PostgreSQL database but any database, for which a ODBC driver is available.
+In addition, it is platform independent and the database may either be a 
+local one or a remove one. 
+
+In order to fully test/use this example case, one needs to have a PostgreSQL 
+server running (for `CREATE_AND_INITIALIZE_DB`) and ODBC configured (`emepDB` 
+package). The `emepTools` package runs out of the box.
+
+
+### CREATE_AND_INITIALIZE_DB
+
+The scripts in the `CREATE_AND_INITIALIZE_DB` folder create the EMEP database,
+create necessary tables and fill some tables with predefined data (e.g. station
+data). If one has a local PostgreSQL database running and if the current user 
+is allowed to create new database, one can just run
+
+    ./create_db_and_do_all.sh
+
+Otherwise, one needs to create the new database manually and call the two SQL 
+scripts `create_tables_v02.1.sql` and `fill_tables_v02.1.sql` by hand.
+
+
+### DIAGRAMS
+
+Just one ER diagram in different formats. I created it with dia, exported it 
+to SVG, made some corrections in Inkscape, and exported it to PDF.
+
+
+### R_TOOLS
+
+The two folders `emepDB` and `emepTools` contain the two R packages. The 
+packages are also provided as `*.tar.gz` files in the same folder. The folder
+`emepPackagesTesting` contains two R scripts to test the R packages. Some dummy
+data is included in `emepPackagesTesting/emep_data`. These are no real data and
+they are only provided for testing purposes.
+
+The package `emepTools` has no dependencies. The packages `emepDB` depends on
+`emepTools` and on `RODBC`. Each function in `emepDB` exists twice. The 
+functions of the format `name.RODBC` expect an open rodbc database connection
+as first argument. The functions of the format `name` expect a variable 
+`DBaccess` to be set as follows:
+
+    DBaccess <- list(name="ODBC-dsn", uid="USERNAME", pwd="PASSWORD") 
+
+The `ODBC-dsn`, `USERNAME`, and `PASSWORD` need to be replaced. The latter set 
+of functions (without `RODBC` in their name) causes some extra opening and 
+closing of the database connection. However, they save inexperienced users some
+time to deal with the database connection.
+
+For more details on using the packages please consult the test scripts and the
+manual pages of the functions.
+
 
 
 -------
 
+[up](#working-examples)
+
 ## R
 
-Five examples of my usage of R are provided in the directory `r_code` (`db` 
-and `wiki` directories contain some more). Five examples are working out of
+Eight examples of my usage of R are provided in the directory `r_code` (`db` 
+and `wiki` directories contain some more). Three examples are working out of
 the box (`01_*` to `03_*`), whereas four examples contain only code, which
 does not run, and corresponding figures (`11_*` to `14_*`). The later code
 examples do not work because input data and some script parts are missing
 becaues the data are not for public use, the data are too large, or/and 
-called code is not my own one.
+called code is not my own one. The `21_*` just points to `db/R_TOOLS` where
+two R packages are presented.
 
 The example `14_*` is quite a nice one because it contains detailed comments
 and shows in a *short* script, how I create a CMAS-IOAPI-conform netCDF file
@@ -256,9 +390,16 @@ If you are working with BSH data in the original text format and would like
 to use my code you are welcome to contact me.
 
 
+### 21_own_R_packages
+
+Please go to `/db/R_TOOLS` in this repository to see two R packages written 
+by me.
+
 -------
 
-## Wiki
+[up](#working-examples)
+
+## wiki
 
 In diesem Verzeichnis sind einige Beispiele von meinen Beitraegen zu Wikis untergebracht.
 
