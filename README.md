@@ -18,7 +18,7 @@ It is divided into four subcategories (sub-directory name in brackets):
 
 **Some Fortran Code is provided in the repository:**
 
-   * [HBM_Tools](https://github.com/neumannd/HBM_tools)
+   * [HBM_Tools](https://github.com/neumannd/HBM_tools) (Fortran Code only; using Fortran netCDF-4)
 
 
 -------
